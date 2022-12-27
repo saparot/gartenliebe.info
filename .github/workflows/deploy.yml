@@ -44,8 +44,7 @@ jobs:
         run: |
           ./createEnvFile.php
           composer install --prefer-dist --no-progress
-          composer dump-env prod
-          composer --version
+         composer --version
 
       - name: install npm packages
         id: npm-clean-install
