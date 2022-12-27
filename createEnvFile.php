@@ -21,4 +21,4 @@ foreach ($configKeys as $key) {
 }
 
 file_put_contents($envFile,$data);
-echo "updated env file $envFile\n";
+echo "updated env file:  $envFile\n";
