@@ -1,0 +1,89 @@
+name: PHP Composer
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Validate composer.json and composer.lock
+        id: composer-validation
+        run: composer validate --strict
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install dependencies
+        id: composer-install
+        env:
+          APP_DEBUG: ${{ secrets.APP_DEBUG }}
+          APP_ENV: ${{ secrets.APP_ENV }}
+          APP_NAME: ${{ secrets.APP_NAME }}
+          APP_URL: ${{ secrets.APP_URL }}
+          DB_CONNECTION: ${{ secrets.DB_CONNECTION }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+
+        run: |
+          ./createEnvFile.php
+          composer install --prefer-dist --no-progress
+          composer dump-env prod
+          composer --version
+
+      - name: install npm packages
+        id: npm-clean-install
+        run: npm ci
+
+      - name: build assets with vite
+        run: npm run build
+
+      - name: Install SSH Key
+        id: ssh-key-install
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H -p ${{ secrets.SSH_HOST_PORT }} ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: push to production
+        run: >
+          rsync
+          -chavzP
+          -e 'ssh -p ${{ secrets.SSH_HOST_PORT }}'
+          --exclude=bin
+          --exclude=resources
+          --exclude=tests
+          --exclude='/downloads'
+          --exclude=node_modules
+          --exclude=package.json
+          --exclude=package-lock.json
+          --exclude='.idea/'
+          --exclude='.git/'
+          --exclude='.github/'
+          --delete
+          . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/webnxf7g6/html/gartenliebe.info/v2
+
+      # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getcomposer.org/doc/articles/scripts.md
+
+    # - name: Run test suite
+    #   run: composer run-script test
