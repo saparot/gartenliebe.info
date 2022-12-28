@@ -1,16 +1,11 @@
 <template>
-    <Link href="/landingpage">Landing Page</Link>
-    <Link href="/news">News</Link>
-    <div v-if="flashMessageSuccess">
-        {{ flashMessageSuccess }}
-    </div>
+    <Link :href="route('landingpage.index')">Landing Page</Link>
+    <Link :href="route('news.index')">News</Link>
     <slot>Default</slot>
 </template>
 
 <script setup>
 import {Link, usePage} from '@inertiajs/inertia-vue3';
-import {computed} from 'vue';
 
 const page = usePage();
-const flashMessageSuccess = computed(() => page.props.value.flash.success || false);
 </script>
