@@ -21,5 +21,5 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/landingpage', [LandingPageController::class, 'index']);
-Route::get('/news', [NewsPageController::class, 'index']);
+Route::get('/landingpage', [LandingPageController::class, 'index'])->name('landingpage.index');
+Route::get('/news', [NewsPageController::class, 'index'])->name('news.index');
