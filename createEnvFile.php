@@ -2,6 +2,7 @@
 <?php
 $configKeys = [
     'APP_ENV',
+    'APP_KEY',
     'APP_DEBUG',
     'APP_NAME',
     'APP_URL',

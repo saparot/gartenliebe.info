@@ -30,6 +30,7 @@ jobs:
       - name: Install dependencies
         id: composer-install
         env:
+          APP_DEBUG: ${{ secrets.APP_KEY }}
           APP_DEBUG: ${{ secrets.APP_DEBUG }}
           APP_ENV: ${{ secrets.APP_ENV }}
           APP_NAME: ${{ secrets.APP_NAME }}
