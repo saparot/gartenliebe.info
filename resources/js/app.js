@@ -2,6 +2,7 @@ import {createApp, h} from 'vue';
 import {createInertiaApp} from '@inertiajs/inertia-vue3';
 import DefaultLayout from './Layouts/DefaultLayout.vue';
 import {ZiggyVue} from 'ziggy';
+import '../css/app.css';
 
 createInertiaApp({
     resolve: async (name) => {
