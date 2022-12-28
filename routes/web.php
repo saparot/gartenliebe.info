@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\NewsPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +20,6 @@ Route::get('/', function () {
         'projectNamePublic' => 'Gartenliebe',
     ]);
 });
+
+Route::get('/landingpage', [LandingPageController::class, 'index']);
+Route::get('/news', [NewsPageController::class, 'index']);
