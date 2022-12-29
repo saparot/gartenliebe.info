@@ -3,13 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>{{ env('APP_NAME') }}</title>
     @routes
     @vite('resources/js/app.js')
     @inertiaHead
 </head>
-<body class="bg-white dark:bg-gray-800 dark:text-gray-300">
+<body class="bg-white text-black dark:bg-neutral-900 dark:text-gray-300">
 @inertia
 </body>
 </html>
