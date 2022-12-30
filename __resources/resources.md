@@ -1,5 +1,9 @@
 # resources
 
+# font
+https://fonts.google.com/specimen/Inter
+
+
 # #favicon
 
 - generated with https://favicon.io/favicon-generator/
