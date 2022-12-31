@@ -1,5 +1,5 @@
 <template>
-    <Header class="bg-gray-200 dark:bg-gray-900 mb-4">
+    <header class="bg-gray-200 dark:bg-gray-900 mb-4">
         <div class="p-1 ">
             <div class="h-9 flex w-full justify-center items-center flex-row">
                 <div class="w-12">
@@ -18,14 +18,30 @@
             </div>
         </div>
         <div class="h-0.5 bg-lime-700"></div>
-    </Header>
-    <Main>
+    </header>
+    <main>
+        <section v-if="flashMessageSuccess" class="bg-lime-300 text-black">
+            {{flashMessageSuccess}}
+        </section>
+        <section v-if="flashMessageWarning" class="bg-orange-300 text-black">
+            {{flashMessageWarning}}
+        </section>
+
+        <section v-if="flashMessageError" class="bg-red-900 text-white">
+            {{flashMessageError}}
+        </section>
+
         <slot/>
-    </Main>
+    </main>
 </template>
 
 <script setup>
 import {Link, usePage} from '@inertiajs/inertia-vue3';
+import {computed} from 'vue';
 
 const page = usePage();
+const flashMessageSuccess = computed(() => page.props.value.flashMessage.success);
+const flashMessageError = computed(() => page.props.value.flashMessage.error);
+const flashMessageWarning = computed(() => page.props.value.flashMessage.warning);
+
 </script>
