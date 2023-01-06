@@ -23,7 +23,12 @@
                         <Link class="hover:color-primary" :href="route('logout')" method="DELETE" as="button">Logout</Link>
                     </div>
                     <div v-else>
-                        <Link class="hover:color-primary" :href="route('login')">Login</Link>
+                        <div class="flex items-center gap-2">
+                            <Link class="hover:color-primary" :href="route('user-account.create')">Register</Link>
+                            <div>|</div>
+                            <Link class="hover:color-primary" :href="route('login')">Login</Link>
+                        </div>
+
                     </div>
                 </div>
             </div>
