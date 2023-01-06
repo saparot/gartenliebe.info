@@ -3,6 +3,10 @@ import {createInertiaApp} from '@inertiajs/inertia-vue3';
 import DefaultLayout from './Layouts/DefaultLayout.vue';
 import {ZiggyVue} from 'ziggy';
 import '../css/app.css';
+import.meta.glob([
+    '../images/**',
+    '../fonts/**',
+]);
 
 createInertiaApp({
     resolve: async (name) => {
