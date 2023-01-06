@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: Inter;
-    src: url("resources/fonts/Inter/Inter-Bold.ttf");
+    src: url("../fonts/Inter/Inter-Regular.ttf");
 }
 
 @layer base {
