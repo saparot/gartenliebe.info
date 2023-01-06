@@ -73,9 +73,7 @@ jobs:
           --exclude=tests
           --exclude=node_modules
           --exclude=createEnvFile.php
-          --exclude=composer.lock
           --exclude=docker-compose.yml
-          --exclude=artisan
           --exclude=postcss.config.js
           --exclude=tailwind.config.js
           --exclude=tailwind.config.js
