@@ -7,7 +7,7 @@ export default defineConfig({
     build: {
         rollupOptions: {
             external: [
-                'image:static/images/*',
+                /^static\/images:.*/,
             ]
         },
     },
