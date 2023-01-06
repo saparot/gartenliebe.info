@@ -4,13 +4,6 @@ import vue from '@vitejs/plugin-vue';
 import path from 'path';
 
 export default defineConfig({
-    build: {
-        rollupOptions: {
-            external: [
-                /^static\/images:.*/,
-            ]
-        },
-    },
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
