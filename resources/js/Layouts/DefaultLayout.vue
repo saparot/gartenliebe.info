@@ -8,7 +8,7 @@
             <div class="w-1/3 flex justify-center items-center">
                 <!-- 2nd box ------------->
                 <div class="w-12">
-                    <img class="max-w-full h-auto" src="/static/images/logo/logo.svg" alt="gartenliebe.info logo">
+                    <img class="max-w-full h-auto" :src="logoUrl" alt="gartenliebe.info logo">
                 </div>
                 <div class="text-lime-700 font-bold">
                     gartenliebe.info
@@ -58,6 +58,7 @@
 </template>
 
 <script setup>
+import logoUrl from '/resources/images/logo/logo.svg';
 import {Link, usePage} from '@inertiajs/inertia-vue3';
 import {computed} from 'vue';
 
