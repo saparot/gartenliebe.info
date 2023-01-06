@@ -16,27 +16,31 @@
 @layer components {
 
     .color-primary {
-        @apply text-lime-600
+        @apply text-lime-600;
+    }
+
+    .color-secondary {
+        @apply text-purple-600;
     }
 
     .bg-primary {
-        @apply bg-lime-600
+        @apply bg-lime-600;
     }
 
     .label {
-        @apply block mb-1 text-gray-500 dark:text-gray-300 font-medium
+        @apply block mb-1 text-gray-500 dark:text-gray-300 font-medium;
     }
 
     .input {
-        @apply block w-full p-2 rounded-md shadow-sm border border-gray-300 dark:border-gray-600 text-gray-500
+        @apply block w-full p-2 rounded-md shadow-sm border border-gray-300 dark:border-gray-600 text-gray-500;
     }
 
     .input-error {
-        @apply text-red-900 dark:text-red-300
+        @apply text-red-900 dark:text-red-300;
     }
 
     .btn-primary {
-        @apply bg-lime-600 hover:bg-lime-700 text-white font-medium p-2 rounded-md
+        @apply bg-lime-600 hover:bg-lime-700 text-white font-medium p-2 rounded-md;
     }
 
 }
