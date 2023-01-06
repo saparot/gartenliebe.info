@@ -72,9 +72,20 @@ jobs:
           --exclude=bin
           --exclude=tests
           --exclude=node_modules
+          --exclude=createEnvFile.php
+          --exclude=composer.lock
+          --exclude=docker-compose.yml
+          --exclude=artisan
+          --exclude=postcss.config.js
+          --exclude=tailwind.config.js
+          --exclude=tailwind.config.js
+          --exclude=vite.config.js
           --exclude=package.json
           --exclude=package-lock.json
           --exclude='.idea/'
+          --exclude='.env.example'
+          --exclude='.gitattributes'
+          --exclude='.gitignore'
           --exclude='.git/'
           --exclude='.github/'
           --delete
