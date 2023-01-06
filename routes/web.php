@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\NewsPageController;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +25,8 @@ Route::get('/', function () {
 
 Route::get('/landingpage', [LandingPageController::class, 'index'])->name('landingpage.index');
 Route::get('/news', [NewsPageController::class, 'index'])->name('news.index');
+
+Route::get('/login', [AuthController::class, 'create'])->name('login')->middleware('guest');
+Route::post('/login', [AuthController::class, 'store'])->name('login.store')->middleware('guest');
+
+Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
