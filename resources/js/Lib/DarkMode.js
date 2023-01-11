@@ -1,23 +1,44 @@
+import {ref} from 'vue';
+
 const MODE_DARK = 'dark';
 const MODE_LIGHT = 'light';
 const MODE_SYSTEM = 'system';
 
 export const darkMode = () => {
 
+    const modeCurrent = ref(MODE_SYSTEM);
+
     const darkModeEnable = () => document.documentElement.classList.add('dark');
 
     const darkModeDisable = () => document.documentElement.classList.remove('dark');
 
+    const setMode = (mode) => {
+        localStorage.theme = mode;
+        modeCurrent.value = mode;
+    };
+
     const darkModeAuto = () => {
         localStorage.removeItem('theme');
         init();
+        modeCurrent.value = MODE_SYSTEM;
+    };
+
+    const darkModeDark = () => {
+        darkModeEnable();
+        setMode(MODE_DARK);
+    };
+
+    const darkModeLight = () => {
+        darkModeDisable();
+        setMode(MODE_LIGHT);
+
     };
 
     const toggle = () => {
         const modeNew = getColorSchemeCurrent() === MODE_DARK ? MODE_LIGHT : MODE_DARK;
         if (modeNew === MODE_LIGHT) darkModeDisable();
         if (modeNew === MODE_DARK) darkModeEnable();
-        localStorage.theme = modeNew;
+        setMode(modeNew);
     };
 
     const getColorSchemeMode = () => {
@@ -47,5 +68,5 @@ export const darkMode = () => {
         darkModeDisable();
     };
 
-    return {init, darkModeEnable, darkModeDisable, darkModeAuto, toggle, getColorSchemeCurrent};
+    return {init, darkModeDark, darkModeLight, darkModeAuto, toggle, getColorSchemeCurrent, modeCurrent};
 };
