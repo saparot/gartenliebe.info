@@ -1,6 +1,5 @@
 <template>
     <header class="bg-gray-200 dark:bg-gray-900 mb-4">
-
         <div class="flex w-full justify-between ">
             <div class="w-1/3">
                 <!-- 1st box ------------->
@@ -16,6 +15,14 @@
             </div>
             <div class="w-1/3 flex justify-end pr-1">
                 <!-- 3rd box ------------->
+                <div class="ml-1">
+                    <button @click="toggleDarkMode">
+                        <MoonIcon v-if="darkModeHandler.getColorSchemeCurrent() === 'dark'" class="h-6 w-6 text-blue-500"/>
+                        <SunIcon v-else-if="darkModeHandler.getColorSchemeCurrent() === 'light'" class="h-6 w-6 text-blue-500"/>
+                        <TvIcon v-else class="h-6 w-6 text-blue-500"/>
+                        Darkmode toggle
+                    </button>
+                </div>
                 <div class="ml-1">
                     <!-- assigned by HandleInertiaRequests-->
                     <div v-if="user">
@@ -63,9 +70,11 @@
 </template>
 
 <script setup>
+import {MoonIcon, SunIcon, TvIcon} from '@heroicons/vue/24/solid';
 import logoUrl from '/resources/images/logo/logo.svg';
 import {Link, usePage} from '@inertiajs/inertia-vue3';
 import {computed} from 'vue';
+import {darkMode} from '../Lib/DarkMode';
 
 const page = usePage();
 const flashMessageSuccess = computed(() => page.props.value.flashMessage.success);
@@ -73,5 +82,9 @@ const flashMessageError = computed(() => page.props.value.flashMessage.error);
 const flashMessageWarning = computed(() => page.props.value.flashMessage.warning);
 
 const user = computed(() => page.props.value.user);
+
+const darkModeHandler = darkMode();
+darkModeHandler.init();
+const toggleDarkMode = () => darkModeHandler.toggle();
 
 </script>
