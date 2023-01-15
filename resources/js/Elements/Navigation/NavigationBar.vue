@@ -7,18 +7,15 @@
         </a>
 
         <!--menu items        -->
-        <ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6 lg:hidden">
+        <div class="hidden lg:flex justify-evenly lg:w-full lg:items-center lg:w-auto lg:space-x-6">
 
-            <li v-for="item in menuItems" class="mb-1">
-                <Link class="text-sm hover:text-gray-500"
-                      :class="item.isActive ? 'color-primary' : 'text-gray-400'"
-                      :href="route(item.url)">{{
-                        item.name
-                    }}
-                </Link>
-            </li>
-        </ul>
-
+            <Link v-for="item in menuItems" class="hover:text-gray-500"
+                  :class="item.isActive ? 'color-primary' : 'text-gray-400'"
+                  :href="route(item.url)">{{
+                    item.name
+                }}
+            </Link>
+        </div>
 
         <div class="hidden lg:flex">
             <!--darkmode selector        -->
@@ -29,11 +26,11 @@
                 <Link class="hover:color-primary" :href="route('logout')" method="DELETE" as="button">Logout</Link>
             </div>
             <Link v-if="isLoggedIn === false"
-                  class="lg:mr-3 py-3 px-6 bg-gray-50 font-semibold leading-none bg-gray-50 dark:text-gray-900 hover:bg-gray-100 rounded-xl hover:color-primary rounded-md"
+                  class="lg:mr-3 py-3 px-6 bg-gray-50 font-semibold leading-none bg-gray-50 dark:text-gray-900 hover:bg-gray-100 rounded-xl hover:color-primary rounded-md whitespace-nowrap"
                   :href="route('login')">Sign in
             </Link>
             <Link v-if="isLoggedIn === false"
-                  class="lg:mr-3 py-3 px-6 text-white font-semibold leading-none bg-primary hover:bg-primary-light hover:color-primary rounded-md"
+                  class="lg:mr-3 py-3 px-6 text-white font-semibold leading-none bg-primary hover:bg-primary-light hover:color-primary rounded-md whitespace-nowrap"
                   :href="route('user-account.create')">Sign Up
             </Link>
         </div>
