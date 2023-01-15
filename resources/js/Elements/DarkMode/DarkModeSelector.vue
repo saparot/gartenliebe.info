@@ -1,5 +1,8 @@
 <template>
-    <div class="relative inline-block text-left">
+    <div
+        class="relative inline-block text-right"
+        :class="props.additionalClasses"
+    >
         <div>
             <button type="button"
                     class="inline-flex w-full justify-center px-4 py-2 text-sm font-medium text-gray-700"
@@ -12,7 +15,7 @@
             </button>
         </div>
         <div
-            class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-gray-200 dark:bg-gray-900 text-lime-700 dark:text-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            class="absolute left-0 z-10 mt-2 origin-top-right rounded-md bg-gray-200 dark:bg-gray-900 text-lime-700 dark:text-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
             :class="showDropDown ? ' transition ease-out duration-100 transform opacity-100 scale-100' : 'transition ease-in duration-75 transform opacity-0 scale-95' "
             role="menu"
             aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
@@ -56,6 +59,9 @@
 import {ref} from 'vue';
 import {MoonIcon, SunIcon, TvIcon} from '@heroicons/vue/24/solid';
 import {darkMode} from '../../Lib/DarkMode';
+
+const props = defineProps(['additionalClasses', 'openDirection']);
+
 
 const darkModeHandler = darkMode();
 darkModeHandler.init();
