@@ -8,7 +8,7 @@ module.exports = {
     ],
     theme: {
         debugScreens: {
-            position: ['top', 'left'],
+            position: ['bottom', 'right'],
         },
         extend: {},
     },
