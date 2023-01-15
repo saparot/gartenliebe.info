@@ -9,8 +9,6 @@
     @inertiaHead
 </head>
 <body class="bg-white text-black dark:bg-gray-800 dark:text-gray-300 debug-screens">
-<div class="container dark:bg-gray-800 dark:text-gray-300 mx-auto min-h-screen">
-    @inertia
-</div>
+@inertia
 </body>
 </html>
