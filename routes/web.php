@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\UserAuthController;
@@ -35,3 +36,5 @@ Route::post('login', [AuthController::class, 'store'])->name('login.store')->mid
 Route::delete('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::resource('user-account', UserAuthController::class)->only(['create', 'store']);
+Route::resource('blog', BlogController::class)->only(['create', 'store', 'edit', 'update'])->middleware('auth');
+Route::resource('blog', BlogController::class)->only(['index'])->middleware('guest');
