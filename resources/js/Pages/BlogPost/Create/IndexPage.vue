@@ -1,11 +1,19 @@
 <template>
+
+    <h1 class="headline-1">Create Blog Post</h1>
+
+    <div class="flex justify-end mb-4">
+        <a class="button-secondary flex"
+           :href="route('blog.index')">
+
+            <ArrowLeftOnRectangleIcon class="h-4"/>
+            Blog Overview
+        </a>
+    </div>
+
     <form @submit.prevent="create">
         <div class="container md:container md:mx-auto">
 
-
-            <div class="col-span-2 mt-4">
-                <h1>Create Blog Post</h1>
-            </div>
 
             <div class="col-span-2 mt-4">
                 <label for="titleDe">Title (de)</label>
@@ -55,9 +63,8 @@
 </template>
 
 <script setup>
-
-
 import {useForm} from '@inertiajs/inertia-vue3';
+import {ArrowLeftOnRectangleIcon} from '@heroicons/vue/24/solid';
 
 const blogPost = useForm({
     title_de: null,

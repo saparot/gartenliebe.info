@@ -15,8 +15,32 @@
 
 @layer components {
 
+    /* ----  without concept start ---------------------------------------- */
     .green-tree {
-        color: #606C38;
+        color: #606c38;
+    }
+
+    /* ----  without concept end ---------------------------------------- */
+
+
+    .headline-1 {
+        @apply text-4xl font-normal leading-normal mt-0 mb-2 text-fuchsia-800
+    }
+
+    .headline-2 {
+        @apply text-3xl font-normal leading-normal mt-0 mb-2 text-fuchsia-800
+    }
+
+    .headline-3 {
+        @apply text-2xl font-normal leading-normal mt-0 mb-2 text-fuchsia-800
+    }
+
+    .button-primary {
+        @apply lg:mr-3 py-3 px-6 text-white font-semibold leading-none bg-primary hover:bg-primary-light hover:color-primary rounded-md whitespace-nowrap
+    }
+
+    .button-secondary {
+        @apply lg:mr-3 py-3 px-6 bg-gray-50 font-semibold leading-none bg-gray-50 dark:text-gray-900 hover:bg-gray-100 rounded-xl hover:color-primary rounded-md whitespace-nowrap;
     }
 
     .color-primary {
