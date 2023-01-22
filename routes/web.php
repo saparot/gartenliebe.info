@@ -36,5 +36,6 @@ Route::post('login', [AuthController::class, 'store'])->name('login.store')->mid
 Route::delete('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::resource('user-account', UserAuthController::class)->only(['create', 'store']);
+
 Route::resource('blog', BlogController::class)->only(['create', 'store', 'edit', 'update'])->middleware('auth');
-Route::resource('blog', BlogController::class)->only(['index'])->middleware('guest');
+Route::resource('blog', BlogController::class)->only(['index']);

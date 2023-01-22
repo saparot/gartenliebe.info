@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('blog_posts', function (Blueprint $table) {
             $table->id();
-            $table->text('title_DE');
-            $table->mediumText('content_DE');
+            $table->text('title_de');
+            $table->mediumText('content_de');
             $table->text('seo_keywords');
             $table->enum('status', ['published', 'unpublished', 'preview']);
             $table->timestamps();

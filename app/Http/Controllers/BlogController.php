@@ -29,9 +29,9 @@ class BlogController extends Controller {
     public function store (Request $request): RedirectResponse {
         BlogPost::create(
             $request->validate([
-                'titleDE' => 'required|string|',
-                'contentDE' => 'required|string',
-                'seoKeywords' => 'required|string|',
+                'title_de' => 'required|string',
+                'content_de' => 'required|string',
+                'seo_keywords' => 'required|string',
                 'status' => ['required', new Enum(BlogPostStatus::class)],
             ])
         );
