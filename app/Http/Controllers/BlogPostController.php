@@ -11,19 +11,19 @@ use Illuminate\Validation\Rules\Enum;
 use Inertia\Response as InertiaResponse;
 use Inertia\ResponseFactory;
 
-class BlogController extends Controller {
+class BlogPostController extends Controller {
 
     public function index (): InertiaResponse|ResponseFactory {
         return inertia(
-            'Blog/Index',
+            'BlogPost/Index',
             [
-                'blogs' => BlogPost::all(),
+                'blogs' => BlogPost::orderBy('id', 'DESC')->take(12)->get(),
             ]
         );
     }
 
     public function create (): ResponseFactory|InertiaResponse {
-        return inertia('Blog/Create');
+        return inertia('BlogPost/Create');
     }
 
     public function store (Request $request): RedirectResponse {
@@ -41,7 +41,7 @@ class BlogController extends Controller {
 
     public function show (BlogPost $blog, int $id): InertiaResponse|ResponseFactory {
         return inertia(
-            'Blog/Show',
+            'BlogPost/Show',
             [
                 'blogPost' => $blog,
             ]
