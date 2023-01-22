@@ -21,14 +21,14 @@
             </Link>
         </div>
 
-        <div class="hidden lg:flex">
+        <div class="hidden lg:flex items-center">
             <!--darkmode selector        -->
             <dark-mode-selector additional-classes="hidden lg:block"/>
 
-            <div v-if="isLoggedIn">
-                <div>{{ user.name }}</div>
-                <Link class="hover:color-primary" :href="route('logout')" method="DELETE" as="button">Logout</Link>
-            </div>
+            <div v-if="isLoggedIn" class="mr-2">{{ user.name }}</div>
+            <Link v-if="isLoggedIn" class="hover:color-primary justify-self-auto" :href="route('logout')" method="DELETE" as="button" type="button">
+                <PowerIcon class="h-6" alt="logout"/>
+            </Link>
             <Link v-if="isLoggedIn === false"
                   class="lg:mr-3 py-3 px-6 bg-gray-50 font-semibold leading-none bg-gray-50 dark:text-gray-900 hover:bg-gray-100 rounded-xl hover:color-primary rounded-md whitespace-nowrap"
                   :href="route('login')">Sign in
@@ -81,12 +81,24 @@
                 <!--darkmode selector        -->
                 <dark-mode-selector open-direction="right"/>
                 <div class="pt-6">
-                    <Link
-                        class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 dark:text-gray-900 hover:bg-gray-100 rounded-xl hover:color-primary"
-                        :href="route('login')">Sign in
+
+                    <Link v-if="isLoggedIn === true"
+                          class="button-secondary w-full"
+                          :href="route('logout')"
+                          method="DELETE"
+                          as="button"
+                    >Logout
+
                     </Link>
 
-                    <Link class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-primary hover:bg-primary-light  rounded-xl hover:color-primary"
+                    <Link v-if=" isLoggedIn=== false
+                    "
+                          class="button-secondary"
+                          :href="route('login')">Sign in
+                    </Link>
+
+                    <Link v-if="isLoggedIn === false"
+                          class="button-primary"
                           :href="route('user-account.create')">Sign Up
                     </Link>
                 </div>
@@ -99,6 +111,7 @@
 <script setup>
 import DarkModeSelector from '../DarkMode/DarkModeSelector.vue';
 import {Bars3Icon} from '@heroicons/vue/24/solid';
+import {PowerIcon} from '@heroicons/vue/24/solid';
 import logoUrl from '/resources/images/logo/logo.svg';
 import {computed, ref} from 'vue';
 import {Link, usePage} from '@inertiajs/inertia-vue3';
