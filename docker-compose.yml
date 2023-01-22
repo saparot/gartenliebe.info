@@ -1,16 +1,15 @@
 version: "3.9"
 services:
     mysql:
+        container_name: garden-love-db
         image: mariadb:10.8.3
         platform: linux/arm64/v8
         command: --default-authentication-plugin=mysql_native_password
         restart: always
         environment:
-            MYSQL_ROOT_PASSWORD: root
+            MARIADB_DATABASE: 'garden_love'
+            MARIADB_USER: 'developer'
+            MARIADB_PASSWORD: 'insecure-dev-pw'
+            MARIADB_RANDOM_ROOT_PASSWORD: true
         ports:
             - 3306:3306
-    adminer:
-        image: adminer
-        restart: always
-        ports:
-            - 8080:8080
