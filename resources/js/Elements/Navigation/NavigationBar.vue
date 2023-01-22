@@ -112,7 +112,7 @@ const projectName = computed(() => page.props.value.projectName);
 const menuItems = ref([
     {url: 'news.index', name: 'Pflanzenlexikon', isActive: true},
     {url: 'news.index', name: 'News', isActive: false},
-    {url: 'news.index', name: 'Blog', isActive: false},
+    {url: 'blog.index', name: 'Blog', isActive: false},
     {url: 'news.index', name: 'Rezepte', isActive: false},
 ]);
 const user = computed(() => page.props.value.user);
