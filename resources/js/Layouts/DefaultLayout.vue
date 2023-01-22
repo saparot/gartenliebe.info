@@ -15,7 +15,7 @@
             {{ flashMessageError }}
         </section>
 
-        <div class="container dark:bg-gray-800 dark:text-gray-300 mx-auto min-h-screen">
+        <div class="container dark:bg-gray-800 dark:text-gray-300 mx-auto min-h-screen px-4 lg:px-0">
             <slot/>
         </div>
     </main>
