@@ -1,7 +1,7 @@
 <template>
     <header class="bg-gray-200 dark:bg-gray-900 mb-4">
         <navigation-bar/>
-        <div class="h-0.5 bg-lime-700"></div>
+        <div class="h-0.5 bg-lime-800"></div>
     </header>
     <main>
         <section v-if="flashMessageSuccess" class="bg-lime-300 text-black">

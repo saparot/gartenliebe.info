@@ -2,9 +2,13 @@
     <nav class="relative px-4 py-4 flex items-center w-full justify-between">
         <!--logo left        -->
 
-        <a class="text-3xl font-bold leading-none" href="#">
-            <img :src="logoUrl" alt="logo" class="max-w-full h-10">
-        </a>
+        <div class="flex justify-items-center items-center">
+            <a class="text-3xl font-bold leading-none h-10 w-10" href="#">
+                <img :src="logoUrl" alt="logo" class="max-w-full">
+            </a>
+            <span class="green-tree">gartenliebe.info</span>
+        </div>
+
 
         <!--menu items        -->
         <div class="hidden lg:flex justify-evenly lg:w-full lg:items-center lg:w-auto lg:space-x-6">
