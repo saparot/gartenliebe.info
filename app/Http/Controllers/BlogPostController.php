@@ -39,7 +39,7 @@ class BlogPostController extends Controller {
         return redirect()->route('blog.index')->with('flashSuccess', 'BlogPost created');
     }
 
-    public function show (BlogPost $blog, int $id): InertiaResponse|ResponseFactory {
+    public function show (BlogPost $blog): InertiaResponse|ResponseFactory {
         return inertia(
             'BlogPost/Show',
             [
@@ -48,27 +48,26 @@ class BlogPostController extends Controller {
         );
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     *
-     * @return Response
-     */
-    public function edit ($id) {
-        //
+    public function edit (BlogPost $blog): InertiaResponse|ResponseFactory {
+        return inertia(
+            'BlogPost/Edit',
+            [
+                'blogPost' => $blog,
+            ]
+        );
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     *
-     * @return Response
-     */
-    public function update (Request $request, $id) {
-        //
+    public function update (Request $request, BlogPost $blog) {
+        $blog->update(
+            $request->validate([
+                'title_de' => 'required|string',
+                'content_de' => 'required|string',
+                'seo_keywords' => 'required|string',
+                'status' => ['required', new Enum(BlogPostStatus::class)],
+            ])
+        );
+
+        return redirect()->route('blog.index')->with('flashSuccess', 'BlogPost updated');
     }
 
     /**

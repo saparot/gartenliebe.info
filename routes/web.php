@@ -39,4 +39,4 @@ Route::delete('logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('user-account', UserAuthController::class)->only(['create', 'store']);
 
 Route::resource('blog', BlogPostController::class)->only(['create', 'store', 'edit', 'update'])->middleware('auth');
-Route::resource('blog', BlogPostController::class)->only(['index']);
+Route::resource('blog', BlogPostController::class)->only(['index', 'show']);

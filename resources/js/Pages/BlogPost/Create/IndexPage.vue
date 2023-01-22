@@ -73,9 +73,6 @@ const blogPost = useForm({
     status: 'preview',
 });
 
-const create = () => {
-    console.log(blogPost);
-    blogPost.post(route('blog.store'));
-};
+const create = () => blogPost.post(route('blog.store'));
 
 </script>

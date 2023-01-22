@@ -16,4 +16,8 @@ class BlogPost extends Model {
     public function owner (): BelongsTo {
         return $this->belongsTo(User::class, 'by_user_id');
     }
+
+    public function images (): HasMany {
+        return $this->hasMany(BlogPostImage::class);
+    }
 }
