@@ -2,11 +2,19 @@ import {createApp, h} from 'vue';
 import {createInertiaApp} from '@inertiajs/inertia-vue3';
 import DefaultLayout from './Layouts/DefaultLayout.vue';
 import {ZiggyVue} from 'ziggy';
+import {InertiaProgress} from '@inertiajs/progress';
 import '../css/app.css';
 import.meta.glob([
     '../images/**',
     '../fonts/**',
 ]);
+
+InertiaProgress.init({
+    delay: 0,
+    color: '#9333EA',
+    includeCSS: true,
+    showSpinner: false,
+});
 
 createInertiaApp({
     resolve: async (name) => {
