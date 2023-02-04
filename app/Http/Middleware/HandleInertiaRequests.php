@@ -45,7 +45,8 @@ class HandleInertiaRequests extends Middleware {
                 'warning' => $request->session()->get('flashMessageWarning'),
                 'error' => $request->session()->get('flashMessageError'),
             ],
-            'isLoggedIn' => $request->user() ? true : false,
+            'isLoggedIn' => (bool) $request->user(),
+            'isCreator' => (bool) $request->user(),
             'user' => $request->user() ? [
                 'id' => $request->user()->id,
                 'name' => $request->user()->name,
