@@ -23,31 +23,21 @@
     /* ----  without concept end ---------------------------------------- */
 
 
-    .headline-1 {
-        @apply text-4xl font-normal leading-normal mt-0 mb-2 text-fuchsia-800
+    .box {
+        @apply py-2 px-4 rounded-md;
     }
 
-    .headline-2 {
-        @apply text-3xl font-normal leading-normal mt-0 mb-2 text-fuchsia-800
-    }
-
-    .headline-3 {
-        @apply text-2xl font-normal leading-normal mt-0 mb-2 text-fuchsia-800
-    }
-
-    .button-primary {
-        @apply lg:mr-3 py-3 px-6 text-white font-semibold leading-none bg-primary hover:bg-primary-light hover:color-primary rounded-md whitespace-nowrap
-    }
-
-    .button-secondary {
-        @apply lg:mr-3 py-3 px-6 bg-gray-50 font-semibold leading-none bg-gray-50 dark:text-gray-900 hover:bg-gray-100 rounded-xl hover:color-primary rounded-md whitespace-nowrap;
-    }
 
     .color-primary {
         @apply text-lime-800;
     }
 
     .color-secondary {
+        /*text-fuchsia-800*/
+        @apply text-purple-800;
+    }
+
+    .color-secondary-light {
         @apply text-purple-600;
     }
 
@@ -57,6 +47,14 @@
 
     .bg-primary-light {
         @apply bg-lime-600;
+    }
+
+    .bg-secondary {
+        @apply bg-purple-800;
+    }
+
+    .bg-secondary-light {
+        @apply bg-purple-600;
     }
 
     .label {
@@ -73,6 +71,26 @@
 
     .btn-primary {
         @apply bg-lime-600 hover:bg-lime-800 text-white font-medium p-2 rounded-md;
+    }
+
+    .headline-1 {
+        @apply text-4xl font-normal leading-normal mt-0 mb-2 color-secondary text-purple-600
+    }
+
+    .headline-2 {
+        @apply text-3xl font-normal leading-normal mt-0 mb-2 color-secondary
+    }
+
+    .headline-3 {
+        @apply text-2xl font-normal leading-normal mt-0 mb-2 color-secondary
+    }
+
+    .button-primary {
+        @apply lg:mr-3 py-3 px-6 text-white font-semibold leading-none bg-primary hover:bg-primary-light hover:color-primary rounded-md whitespace-nowrap
+    }
+
+    .button-secondary {
+        @apply lg:mr-3 py-3 px-6 bg-gray-50 font-semibold leading-none bg-gray-50 dark:text-gray-900 hover:bg-gray-100 rounded-xl hover:color-primary rounded-md whitespace-nowrap;
     }
 
 }
