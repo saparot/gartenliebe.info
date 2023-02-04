@@ -1,4 +1,4 @@
-<template>
++<template>
 
     <h1 class="headline-1">Latest blog posts</h1>
 
@@ -11,7 +11,7 @@
         </a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mb-4">
-        <BlogPostBox v-for="blog in blogs.data" :key="blog.id" :blog="blog" :creatorMode="false"/>
+        <BlogPostBox v-for="blog in blogs.data" :key="blog.id" :blog="blog" :creatorMode="true"/>
     </div>
     <div v-if="blogs.data.length" class="w-full flex justify-center mx-8">
         <PaginationClassic :links="blogs.links"/>

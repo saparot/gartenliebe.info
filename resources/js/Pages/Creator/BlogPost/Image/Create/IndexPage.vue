@@ -2,8 +2,8 @@
     <div>Its image upload</div>
 
     <form
-        method="post"
-        :action="route(' blog.image.store', { blog: blog.id})"
+        method="POST"
+        :action="route('creator.blog.image.store', { blog: blog.id})"
     >
 
         <div class="mt-4">

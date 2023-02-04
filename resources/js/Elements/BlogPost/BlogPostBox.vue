@@ -18,8 +18,8 @@
                 </div>
 
                 <div class="flex justify-end">
-                    <a :href="route('blog.show', {blog: blog})" class="button-primary">show</a>
-                    <a :href="route('blog.edit', {blog: blog})" class="button-secondary">edit</a>
+                    <a :href="route(routeBlog.show, {blog: blog})" class="button-primary">show</a>
+                    <a v-if="creatorMode && isCreator" :href="route('creator.blog.edit', {blog: blog})" class="button-secondary">edit</a>
 
                 </div>
             </div>
@@ -29,10 +29,20 @@
 </template>
 
 <script setup>
-
+import {routeBlog} from '~lib/routes';
 import Box from '/resources/js/UI/PurpleOlives/Box.vue';
+import {computed} from 'vue';
+import {usePage} from '@inertiajs/inertia-vue3';
 
+const page = usePage();
+const isCreator = computed(() => page.props.value.isCreator);
 const props = defineProps({
     blog: Object,
+    creatorMode: {
+        type: Boolean,
+        default: false,
+    },
 });
+
+
 </script>
