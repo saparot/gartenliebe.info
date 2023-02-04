@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-end mb-4">
         <a class="button-secondary flex"
-           :href="route('blog.index')">
+           :href="route(routeBlog.list)">
 
             <ArrowLeftOnRectangleIcon class="h-4"/>
             Blog Overview
@@ -15,8 +15,8 @@
     </div>
 </template>
 <script setup>
-
 import {ArrowLeftOnRectangleIcon} from '@heroicons/vue/24/solid';
+import {routeBlog} from '~lib/routes';
 
 const props = defineProps({
     blogPost: Object,

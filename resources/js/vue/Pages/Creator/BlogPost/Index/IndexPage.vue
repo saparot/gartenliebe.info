@@ -1,10 +1,11 @@
-+<template>
++
+<template>
 
     <h1 class="headline-1">Latest blog posts</h1>
 
     <div class="flex justify-end mb-4">
         <a class="button-primary flex"
-           :href="route('creator.blog.create')">
+           :href="route(routeBlog.creator.create)">
 
             <PlusIcon class="h-4"/>
             Blog-Post
@@ -24,6 +25,7 @@
 import {PlusIcon} from '@heroicons/vue/24/solid';
 import BlogPostBox from '~olive/BlogPostBox.vue';
 import PaginationClassic from '~olive/PaginationClassic.vue';
+import {routeBlog} from '~lib/routes';
 
 const props = defineProps({
     blogs: Object,

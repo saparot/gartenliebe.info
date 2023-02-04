@@ -4,7 +4,7 @@
 
     <div class="flex justify-end mb-4">
         <a class="button-secondary flex"
-           :href="route('blog.index')">
+           :href="route(routeBlog.creator.list)">
 
             <ArrowLeftOnRectangleIcon class="h-4"/>
             Blog Overview
@@ -64,6 +64,7 @@
 <script setup>
 import {useForm} from '@inertiajs/inertia-vue3';
 import {ArrowLeftOnRectangleIcon} from '@heroicons/vue/24/solid';
+import {routeBlog} from '~lib/routes';
 
 const props = defineProps({
     blogPost: Object,

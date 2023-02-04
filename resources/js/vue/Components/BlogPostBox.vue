@@ -2,10 +2,10 @@
     <Box>
         <div class="flex overflow-hidden max-h-56">
 
-            <img src="/images/random/random1.jpg"
-                 alt="garden picture"
-                 class="object-cover w-2/5 border-r2 border-lime-700"
-            >
+            <!--            <img src="/images/random/random1.jpg"-->
+            <!--                 alt="garden picture"-->
+            <!--                 class="object-cover w-2/5 border-r2 border-lime-700"-->
+            <!--            >-->
 
             <div class="bg-gray-200 dark:bg-gray-900 w-full flex flex-col justify-between py-0.5 pl-1">
                 <div class="dark:text-lime-800 font-bold mb-1">
@@ -18,8 +18,8 @@
                 </div>
 
                 <div class="flex justify-end">
-                    <a :href="route(routeBlog.show, {blog: blog})" class="button-primary">show</a>
-                    <a v-if="creatorMode && isCreator" :href="route('creator.blog.edit', {blog: blog})" class="button-secondary">edit</a>
+                    <a :href="route(linkShow, {blog: blog})" class="button-primary">{{ linkTextShow }}</a>
+                    <a v-if="creatorMode && isCreator" :href="route(routeBlog.creator.edit, {blog: blog})" class="button-secondary">Edit</a>
 
                 </div>
             </div>
@@ -44,5 +44,8 @@ const props = defineProps({
     },
 });
 
+console.log(routeBlog);
+const linkShow = props.creatorMode ? routeBlog.creator.show : routeBlog.show;
+const linkTextShow = props.creatorMode ? 'Preview' : 'Read';
 
 </script>
