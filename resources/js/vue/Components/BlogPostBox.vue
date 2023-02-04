@@ -30,7 +30,7 @@
 
 <script setup>
 import {routeBlog} from '~lib/routes';
-import Box from '/resources/js/UI/PurpleOlives/Box.vue';
+import Box from '~olive/Box.vue';
 import {computed} from 'vue';
 import {usePage} from '@inertiajs/inertia-vue3';
 

@@ -109,7 +109,7 @@
 </template>
 
 <script setup>
-import DarkModeSelector from '../DarkMode/DarkModeSelector.vue';
+import DarkModeSelector from '~olive/DarkModeSelector.vue';
 import {Bars3Icon} from '@heroicons/vue/24/solid';
 import {PowerIcon} from '@heroicons/vue/24/solid';
 import logoUrl from '/resources/images/logo/logo.svg';

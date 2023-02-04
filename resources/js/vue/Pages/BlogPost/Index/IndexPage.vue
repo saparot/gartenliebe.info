@@ -22,8 +22,8 @@
 
 <script setup>
 import {PlusIcon} from '@heroicons/vue/24/solid';
-import BlogPostBox from '/resources/js/Elements/BlogPost/BlogPostBox.vue';
-import PaginationClassic from '/resources/js/UI/PurpleOlives/PaginationClassic.vue';
+import BlogPostBox from '~olive/BlogPostBox.vue';
+import PaginationClassic from '~olive/PaginationClassic.vue';
 
 const props = defineProps({
     blogs: Object,

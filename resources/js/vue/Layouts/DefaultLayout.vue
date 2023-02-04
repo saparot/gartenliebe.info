@@ -24,7 +24,7 @@
 <script setup>
 import {usePage} from '@inertiajs/inertia-vue3';
 import {computed} from 'vue';
-import NavigationBar from '../Elements/Navigation/NavigationBar.vue';
+import NavigationBar from '~olive/NavigationBar.vue';
 
 const page = usePage();
 const flashMessageSuccess = computed(() => page.props.value.flashMessage.success);

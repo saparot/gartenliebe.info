@@ -1,6 +1,6 @@
 import {createApp, h} from 'vue';
 import {createInertiaApp} from '@inertiajs/inertia-vue3';
-import DefaultLayout from './Layouts/DefaultLayout.vue';
+import DefaultLayout from './vue/Layouts/DefaultLayout.vue';
 import {ZiggyVue} from 'ziggy';
 import {InertiaProgress} from '@inertiajs/progress';
 import '../css/app.css';
@@ -18,8 +18,8 @@ InertiaProgress.init({
 
 createInertiaApp({
     resolve: async (name) => {
-        const pages = import.meta.glob('./Pages/**/**/*Page.vue');
-        const page = await pages[`./Pages/${name}/IndexPage.vue`]();
+        const pages = import.meta.glob('./vue/Pages/**/**/*Page.vue');
+        const page = await pages[`./vue/Pages/${name}/IndexPage.vue`]();
         page.default.layout = page.default.layout || DefaultLayout;
 
         return page;
