@@ -58,7 +58,7 @@
 <script setup>
 import {ref} from 'vue';
 import {MoonIcon, SunIcon, TvIcon} from '@heroicons/vue/24/solid';
-import {darkMode} from '~lib/DarkMode';
+import {darkMode} from '~lib/darkMode';
 
 const props = defineProps(['additionalClasses', 'openDirection']);
 
