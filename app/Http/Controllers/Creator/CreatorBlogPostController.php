@@ -42,7 +42,7 @@ class CreatorBlogPostController extends Controller {
 
     public function show (BlogPost $blog): InertiaResponse|ResponseFactory {
         return inertia(
-            'BlogPost/Show',
+            'Creator/BlogPost/Show',
             [
                 'blogPost' => $blog,
             ]
