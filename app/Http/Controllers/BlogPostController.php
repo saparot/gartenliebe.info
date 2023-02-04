@@ -17,7 +17,7 @@ class BlogPostController extends Controller {
         return inertia(
             'BlogPost/Index',
             [
-                'blogs' => BlogPost::orderBy('id', 'DESC')->take(12)->get(),
+                'blogs' => BlogPost::orderBy('id', 'DESC')->paginate(10),
             ]
         );
     }
