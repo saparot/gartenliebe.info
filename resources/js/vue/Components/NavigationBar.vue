@@ -26,16 +26,16 @@
             <dark-mode-selector additional-classes="hidden lg:block"/>
 
             <div v-if="isLoggedIn" class="mr-2">{{ user.name }}</div>
-            <Link v-if="isLoggedIn" class="hover:color-primary justify-self-auto" :href="route('logout')" method="DELETE" as="button" type="button">
+            <Link v-if="isLoggedIn" class="hover:color-primary justify-self-auto" :href="route(routeAccount.logout)" method="DELETE" as="button" type="button">
                 <PowerIcon class="h-6" alt="logout"/>
             </Link>
             <Link v-if="isLoggedIn === false"
                   class="lg:mr-3 py-3 px-6 bg-gray-50 font-semibold leading-none bg-gray-50 dark:text-gray-900 hover:bg-gray-100 rounded-xl hover:color-primary rounded-md whitespace-nowrap"
-                  :href="route('login')">Sign in
+                  :href="route(routeAccount.login)">Sign in
             </Link>
             <Link v-if="isLoggedIn === false"
                   class="lg:mr-3 py-3 px-6 text-white font-semibold leading-none bg-primary hover:bg-primary-light hover:color-primary rounded-md whitespace-nowrap"
-                  :href="route('user-account.create')">Sign Up
+                  :href="route(routeAccount.signUp)">Sign Up
             </Link>
         </div>
 
@@ -84,7 +84,7 @@
 
                     <Link v-if="isLoggedIn === true"
                           class="button-secondary w-full"
-                          :href="route('logout')"
+                          :href="route(routeAccount.logout)"
                           method="DELETE"
                           as="button"
                     >Logout
@@ -94,12 +94,12 @@
                     <Link v-if=" isLoggedIn=== false
                     "
                           class="button-secondary"
-                          :href="route('login')">Sign in
+                          :href="route(routeAccount.login)">Sign in
                     </Link>
 
                     <Link v-if="isLoggedIn === false"
                           class="button-primary"
-                          :href="route('user-account.create')">Sign Up
+                          :href="route(routeAccount.signUp)">Sign Up
                     </Link>
                 </div>
             </div>
@@ -115,6 +115,7 @@ import {PowerIcon} from '@heroicons/vue/24/solid';
 import logoUrl from '/resources/images/logo/logo.svg';
 import {computed, ref} from 'vue';
 import {Link, usePage} from '@inertiajs/inertia-vue3';
+import {routeAccount, routeBlog} from '~lib/routes';
 
 const page = usePage();
 
@@ -123,10 +124,10 @@ const toggleHamburgerMenu = () => showHamburgerMenu.value ? showHamburgerMenu.va
 const projectName = computed(() => page.props.value.projectName);
 
 const menuItems = ref([
-    {url: 'news.index', name: 'Pflanzenlexikon', isActive: true},
-    {url: 'news.index', name: 'News', isActive: false},
-    {url: 'blog.index', name: 'Blog', isActive: false},
-    {url: 'news.index', name: 'Rezepte', isActive: false},
+    {url: routeBlog.list, name: 'Pflanzenlexikon', isActive: true},
+    {url: routeBlog.list, name: 'News', isActive: false},
+    {url: routeBlog.list, name: 'Blog', isActive: false},
+    {url: routeBlog.list, name: 'Rezepte', isActive: false},
 ]);
 const user = computed(() => page.props.value.user);
 const isLoggedIn = computed(() => page.props.value.isLoggedIn);

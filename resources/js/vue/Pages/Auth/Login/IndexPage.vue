@@ -17,7 +17,7 @@
             </div>
             <div class="mt-4">
                 <div>
-                    <Link class="hover:color-secondary text-sm" :href="route('user-account.create')">Need an account? Click here!</Link>
+                    <Link class="hover:color-secondary text-sm" :href="route(routeAccount.signUp)">Need an account? Click here!</Link>
                 </div>
             </div>
         </div>
@@ -26,10 +26,11 @@
 
 <script setup>
 import {useForm, Link} from '@inertiajs/inertia-vue3';
+import {routeAccount} from '~lib/routes';
 
 const form = useForm({
     email: null,
     password: null,
 });
-const login = () => form.post(route('login.store'));
+const login = () => form.post(route(routeAccount.store));
 </script>
