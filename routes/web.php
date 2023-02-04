@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\BlogPostImageController;
+use App\Http\Controllers\Creator\CreatorBlogPostController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\UserAuthController;
@@ -33,10 +34,15 @@ Route::get('news', [NewsPageController::class, 'index'])->name('news.index');
 
 Route::get('login', [AuthController::class, 'create'])->name('login')->middleware('guest');
 Route::post('login', [AuthController::class, 'store'])->name('login.store')->middleware('guest');
-
 Route::delete('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::resource('user-account', UserAuthController::class)->only(['create', 'store']);
-
-Route::resource('blog', BlogPostController::class)->only(['create', 'store', 'edit', 'update'])->middleware('auth');
 Route::resource('blog', BlogPostController::class)->only(['index', 'show']);
+
+Route::prefix('creator')
+    ->name('creator.')
+    ->middleware('auth')
+    ->group(function () {
+        Route::resource('blog', CreatorBlogPostController::class);
+        Route::resource('blog.image', BlogPostImageController::class)->only(['create', 'store']);
+    });
