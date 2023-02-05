@@ -122,14 +122,20 @@ const page = usePage();
 const showHamburgerMenu = ref(false);
 const toggleHamburgerMenu = () => showHamburgerMenu.value ? showHamburgerMenu.value = false : showHamburgerMenu.value = true;
 const projectName = computed(() => page.props.value.projectName);
+const user = computed(() => page.props.value.user);
+const isCreator = computed(() => page.props.value.isCreator);
+const isLoggedIn = computed(() => page.props.value.isLoggedIn);
 
-const menuItems = ref([
+const menuItemsPrepare = [
     {url: routeBlog.list, name: 'Pflanzenlexikon', isActive: true},
     {url: routeBlog.list, name: 'News', isActive: false},
     {url: routeBlog.list, name: 'Blog', isActive: false},
     {url: routeBlog.list, name: 'Rezepte', isActive: false},
-]);
-const user = computed(() => page.props.value.user);
-const isLoggedIn = computed(() => page.props.value.isLoggedIn);
+];
+if (isCreator) {
+    menuItemsPrepare.push({url: routeBlog.creator.list, name: 'Blog Creator', isActive: false});
+}
+
+const menuItems = ref(menuItemsPrepare);
 
 </script>
