@@ -1,25 +1,28 @@
 <template>
-    <div>Its image upload</div>
+    <h1 class="headline-1">Image upload for blog post</h1>
+    <h2 class="headline-2">{{ blog.title_de }}</h2>
 
     <form
+        enctype="multipart/form-data"
         method="POST"
-        :action="route('creator.blog.image.store', { blog: blog.id})"
+        :action="route(routeBlog.creator.image.store, { blog })"
     >
 
         <div class="mt-4">
-            <input type="file" multiple name="files">
+            <input type="file" name="images[]" accept=".jpg, .png"/>
         </div>
 
         <div class="mt-4">
-            <button type="submit" class="btn-primary w-full">Upload</button>
+            <button type="submit" class="btn-primary w-full">Upload Images</button>
         </div>
 
     </form>
 </template>
 
 <script setup>
+import {routeBlog} from '~lib/routes';
 
-defineProps({
+const props = defineProps({
     blog: Object,
 });
 </script>

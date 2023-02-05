@@ -18,8 +18,9 @@
                 </div>
 
                 <div class="flex justify-end">
-                    <a :href="route(linkShow, {blog: blog})" class="button-primary">{{ linkTextShow }}</a>
-                    <a v-if="creatorMode && isCreator" :href="route(routeBlog.creator.edit, {blog: blog})" class="button-secondary">Edit</a>
+                    <a :href="route(linkShow, { blog })" class="button-primary">{{ linkTextShow }}</a>
+                    <a v-if="creatorMode && isCreator" :href="route(routeBlog.creator.edit, { blog })" class="button-secondary">Edit</a>
+                    <a v-if="creatorMode && isCreator" :href="route(routeBlog.creator.image.create, { blog })" class="button-secondary">Image create</a>
 
                 </div>
             </div>
