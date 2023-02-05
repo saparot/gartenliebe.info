@@ -3,7 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogPostController;
-use App\Http\Controllers\BlogPostImageController;
+use App\Http\Controllers\Creator\CreatorBlogPostImageController;
 use App\Http\Controllers\Creator\CreatorBlogPostController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\NewsPageController;
@@ -43,6 +43,8 @@ Route::prefix('creator')
     ->name('creator.')
     ->middleware('auth')
     ->group(function () {
+        /** ------------ creator start ------------   */
         Route::resource('blog', CreatorBlogPostController::class);
-        Route::resource('blog.image', BlogPostImageController::class)->only(['create', 'store']);
+        Route::resource('blog.image', CreatorBlogPostImageController::class)->only(['create', 'store']);
+        /** ------------ creator end ------------   */
     });
