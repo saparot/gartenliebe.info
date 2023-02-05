@@ -1,6 +1,6 @@
 export const routeAccount = {
     signUp: 'user-account.create',
-    store: 'user-account.store',
+    loginStore: 'login.store',
     login: 'login',
     logout: 'logout',
 
@@ -17,5 +17,9 @@ export const routeBlog = {
         edit: 'creator.blog.edit',
         update: 'creator.blog.update',
         delete: 'creator.blog.delete',
+        image: {
+            create: 'creator.blog.image.create',
+            store: 'creator.blog.image.store',
+        },
     },
 };
