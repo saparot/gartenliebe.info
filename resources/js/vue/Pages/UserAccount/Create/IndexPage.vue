@@ -22,7 +22,7 @@
                 <div v-if="form.errors.password_confirmation" class="input-error">{{ form.errors.password_confirmation }}</div>
             </div>
             <div class="mt-4">
-                <button class="btn-primary w-full" type="submit">Register</button>
+                <button class="button-primary w-full" type="submit">Register</button>
             </div>
             <div class="mt-4">
                 <div>

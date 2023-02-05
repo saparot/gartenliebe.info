@@ -53,7 +53,7 @@
             </div>
 
             <div class="mt-4">
-                <button type="submit" class="btn-primary w-full">Save</button>
+                <button type="submit" class="button-primary w-full">Save</button>
             </div>
         </div>
     </form>

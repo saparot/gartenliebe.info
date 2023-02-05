@@ -13,7 +13,7 @@
                 <div v-if="form.errors.password" class="input-error">{{ form.errors.password }}</div>
             </div>
             <div class="mt-4">
-                <button class="btn-primary w-full" type="submit">Login</button>
+                <button class="button-primary w-full" type="submit">Login</button>
             </div>
             <div class="mt-4">
                 <div>
