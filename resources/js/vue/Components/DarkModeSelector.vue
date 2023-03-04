@@ -16,7 +16,7 @@
         </div>
         <div
             class="absolute left-0 z-10 mt-2 origin-top-right rounded-md bg-gray-200 dark:bg-gray-900 text-lime-700 dark:text-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-            :class="showDropDown ? ' transition ease-out duration-100 transform opacity-100 scale-100' : 'transition ease-in duration-75 transform opacity-0 scale-95' "
+            :class="showDropDown ? ' visible transition ease-out duration-100 transform opacity-100 scale-100' : ' invisible transition ease-in duration-75 transform opacity-0 scale-95' "
             role="menu"
             aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
             <div class="py-1" role="none">
