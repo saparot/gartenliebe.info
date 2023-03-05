@@ -7,10 +7,21 @@
             Blog Preview List
         </a>
     </div>
-    <h1 class="headline-1">{{ blogPost.title_de }}</h1>
+
+
+    <div class="flex justify-end mb-4">
+        <div class="flex justify-endssss items-center gap-2">
+            <a :href="route(routeBlog.show, { blog })" class="button-primary">Show Public page</a>
+            <a :href="route(routeBlog.creator.edit, { blog })" class="button-secondary">Edit</a>
+            <a :href="route(routeBlog.creator.image.create, { blog })" class="button-secondary">Add Images</a>
+        </div>
+
+    </div>
+
+    <h1 class="headline-1">{{ blog.title_de }}</h1>
 
     <div>
-        {{ blogPost.content_de }}
+        {{ blog.content_de }}
 
     </div>
 </template>
@@ -19,7 +30,9 @@ import {ArrowLeftOnRectangleIcon} from '@heroicons/vue/24/solid';
 import {routeBlog} from '~lib/routes';
 
 const props = defineProps({
-    blogPost: Object,
+    blog: Object,
 });
 
+
+console.log(props.blog);
 </script>

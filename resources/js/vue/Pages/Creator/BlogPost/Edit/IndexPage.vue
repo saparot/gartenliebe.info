@@ -67,16 +67,16 @@ import {ArrowLeftOnRectangleIcon} from '@heroicons/vue/24/solid';
 import {routeBlog} from '~lib/routes';
 
 const props = defineProps({
-    blogPost: Object,
+    blog: Object,
 });
 
 const blogPostEdit = useForm({
-    title_de: props.blogPost.title_de,
-    content_de: props.blogPost.content_de,
-    seo_keywords: props.blogPost.seo_keywords,
-    status: props.blogPost.status,
+    title_de: props.blog.title_de,
+    content_de: props.blog.content_de,
+    seo_keywords: props.blog.seo_keywords,
+    status: props.blog.status,
 });
 
-const update = () => blogPostEdit.patch(route('blog.update', {blog: props.blogPost}));
+const update = () => blogPostEdit.patch(route('blog.update', {blog: props.blog}));
 
 </script>

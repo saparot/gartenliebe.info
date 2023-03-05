@@ -44,7 +44,7 @@ class CreatorBlogPostController extends Controller {
         return inertia(
             'Creator/BlogPost/Show',
             [
-                'blogPost' => $blog,
+                'blog' => $blog,
             ]
         );
     }
@@ -53,7 +53,7 @@ class CreatorBlogPostController extends Controller {
         return inertia(
             'Creator/BlogPost/Edit',
             [
-                'blogPost' => $blog,
+                'blog' => $blog,
             ]
         );
     }
