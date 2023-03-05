@@ -19,12 +19,14 @@
             <slot/>
         </div>
     </main>
+    <Footer/>
 </template>
 
 <script setup>
 import {usePage} from '@inertiajs/inertia-vue3';
 import {computed} from 'vue';
 import NavigationBar from '~olive/NavigationBar.vue';
+import Footer from '/resources/js/vue/Layouts/Footer.vue';
 
 const page = usePage();
 const flashMessageSuccess = computed(() => page.props.value.flashMessage.success);
