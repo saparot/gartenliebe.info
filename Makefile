@@ -11,3 +11,8 @@ dev-database-migrate:
 
 db-shell:
 	@php artisan tinker
+
+cache-clear:
+	@php artisan cache:clear
+	@php artisan route:clear
+	@php artisan view:clear
