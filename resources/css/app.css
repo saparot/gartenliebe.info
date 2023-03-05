@@ -21,12 +21,9 @@
     }
 
     /* ----  without concept end ---------------------------------------- */
-
-
     .box {
         @apply py-2 px-4 rounded-md;
     }
-
 
     .color-primary {
         @apply text-lime-800;
@@ -69,10 +66,6 @@
         @apply text-red-900 dark:text-red-300;
     }
 
-    .btn-primary {
-        @apply bg-lime-600 hover:bg-lime-800 text-white font-medium p-2 rounded-md;
-    }
-
     .headline-1 {
         @apply text-4xl font-normal leading-normal mt-0 mb-2 color-secondary text-purple-600
     }
@@ -85,8 +78,12 @@
         @apply text-2xl font-normal leading-normal mt-0 mb-2 color-secondary
     }
 
+    .button-disabled {
+        @apply cursor-not-allowed opacity-25
+    }
+
     .button-primary {
-        @apply lg:mr-3 py-3 px-6 text-white font-semibold leading-none bg-primary hover:bg-primary-light hover:color-primary rounded-md whitespace-nowrap
+        @apply lg:mr-3 py-3 px-6 text-white font-semibold leading-none bg-primary hover:bg-primary-light hover:text-white rounded-md whitespace-nowrap
     }
 
     .button-secondary {
