@@ -3,15 +3,22 @@ import {createInertiaApp} from '@inertiajs/inertia-vue3';
 import DefaultLayout from './vue/Layouts/DefaultLayout.vue';
 import {ZiggyVue} from 'ziggy';
 import {InertiaProgress} from '@inertiajs/progress';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText} from '@fortawesome/vue-fontawesome';
+import {faTwitter, faGithub} from '@fortawesome/free-brands-svg-icons';
+import {faCircle, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import '../css/app.css';
+
 import.meta.glob([
     '../images/**',
     '../fonts/**',
 ]);
 
+library.add(faTwitter, faGithub, faCircle, faEnvelope);
+
 InertiaProgress.init({
     delay: 0,
-    color: '#9333EA',
+    color: '#9333ea',
     includeCSS: true,
     showSpinner: false,
 });
@@ -28,6 +35,9 @@ createInertiaApp({
         createApp({render: () => h(App, props)})
         .use(plugin)
         .use(ZiggyVue)
+        .component('font-awesome-icon', FontAwesomeIcon)
+        .component('font-awesome-layers', FontAwesomeLayers)
+        .component('font-awesome-layer-text', FontAwesomeLayersText)
         .mount(el);
     },
 });
