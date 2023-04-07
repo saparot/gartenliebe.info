@@ -40,6 +40,7 @@ class HandleInertiaRequests extends Middleware {
     public function share (Request $request): array {
         return array_merge(parent::share($request), [
             'projectName' => 'gartenliebe.info',
+            'languageIso' => 'de',
             'flashMessage' => [
                 'success' => $request->session()->get('flashMessageSuccess'),
                 'warning' => $request->session()->get('flashMessageWarning'),
