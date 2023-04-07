@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\BlogPost;
 use App\Models\StaticPageContent;
 use App\Models\User;
+use Database\Factories\StaticPageContentFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder {
@@ -22,6 +23,6 @@ class DatabaseSeeder extends Seeder {
         ]);
         User::factory(10)->create();
         BlogPost::factory(30)->create();
-        StaticPageContent::factory(2)->create();
+        StaticPageContent::factory(StaticPageContentFactory::getSeederCount())->create();
     }
 }
