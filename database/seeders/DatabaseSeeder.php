@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\BlogPost;
+use App\Models\StaticPageContent;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder {
             'email' => 'test@example.com',
         ]);
         User::factory(10)->create();
-        /*****  BlogPosts ******/
         BlogPost::factory(30)->create();
+        StaticPageContent::factory(2)->create();
     }
 }
