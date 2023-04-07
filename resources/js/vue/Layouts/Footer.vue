@@ -33,9 +33,9 @@
                         <div class="w-full md:w-6/12 xl:w-4/12 pt-6 md:pt-0 md:px-4 ml-auto">
                             <div class="uppercase text-xs mb-2">links</div>
                             <ul class="list-unstyled">
-                                <li><a class="hover:text-lime-800 block pb-2 text-sm" href="#todo">Impressum</a></li>
-                                <li><a class="hover:text-lime-800 block pb-2 text-sm" href="#todo" target="_blank">Datenschutzhinweise</a></li>
-                                <li><a class="hover:text-lime-800 block pb-2 text-sm" href="#todo">Kontakt</a></li>
+                                <li><a class="hover:text-lime-800 block pb-2 text-sm" :href="route('static.imprint')">Impressum</a></li>
+                                <li><a class="hover:text-lime-800 block pb-2 text-sm" :href="route('static.privacy')">Datenschutzhinweise</a></li>
+                                <li><a class="hover:text-lime-800 block pb-2 text-sm" :href="route('static.contact')">Kontakt</a></li>
                             </ul>
                         </div>
                         <div class="w-full md:w-6/12 xl:w-4/12 pt-6 md:pt-0 md:px-4 ml-auto">

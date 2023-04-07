@@ -32,7 +32,4 @@ import {routeBlog} from '~lib/routes';
 const props = defineProps({
     blog: Object,
 });
-
-
-console.log(props.blog);
 </script>
