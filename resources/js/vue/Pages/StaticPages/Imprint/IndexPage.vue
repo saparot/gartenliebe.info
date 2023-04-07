@@ -25,7 +25,6 @@ const props = defineProps({
     contactPhone: String,
 });
 
-console.log(props);
 const page = usePage();
 const languageIso = computed(() => page.props.value.languageIso);
 </script>
