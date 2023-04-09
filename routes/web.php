@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\Creator\CreatorBlogPostImageController;
 use App\Http\Controllers\Creator\CreatorBlogPostController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\StaticPagesController;
 use App\Http\Controllers\UserAuthController;
@@ -33,6 +34,7 @@ Route::get('/', function () {
 Route::get('privacy', [StaticPagesController::class, 'pagePrivacy'])->name('static.privacy');
 Route::get('imprint', [StaticPagesController::class, 'pageImprint'])->name('static.imprint');
 Route::get('contact', [StaticPagesController::class, 'pageContact'])->name('static.contact');
+Route::post('language', [LanguageController::class, 'languageSwitch'])->name('language.switch');
 
 Route::get('landingpage', [LandingPageController::class, 'index'])->name('landingpage.index');
 Route::get('news', [NewsPageController::class, 'index'])->name('news.index');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Inertia\Middleware;
@@ -41,7 +42,8 @@ class HandleInertiaRequests extends Middleware {
     public function share (Request $request): array {
         return array_merge(parent::share($request), [
             'projectName' => 'gartenliebe.info',
-            'languageIso' => App::currentLocale(),
+            'locale' => app()->getLocale(),
+            'languageSnippets' => $this->getLanguageSnippetsAll(),
             'flashMessage' => [
                 'success' => $request->session()->get('flashMessageSuccess'),
                 'warning' => $request->session()->get('flashMessageWarning'),
@@ -55,5 +57,25 @@ class HandleInertiaRequests extends Middleware {
                 'email' => $request->user()->email,
             ] : null,
         ]);
+    }
+
+    /**
+     * this may result in a hughe amount of data, should be optimized once
+     *
+     * @return array
+     * @throws Exception
+     */
+    private function getLanguageSnippetsAll (): array {
+        $path = resource_path(sprintf('lang/%s.json', app()->getLocale()));
+        if (!file_exists($path)) {
+            return [];
+        }
+
+        $result = json_decode(file_get_contents($path), true);
+        if (json_last_error()) {
+            throw new Exception(sprintf('failed to parse translations for language %s', app()->getLocale()));
+        }
+
+        return $result;
     }
 }

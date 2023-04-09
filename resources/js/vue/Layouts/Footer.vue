@@ -33,15 +33,21 @@
                         <div class="w-full md:w-6/12 xl:w-4/12 pt-6 md:pt-0 md:px-4 ml-auto">
                             <div class="uppercase text-xs mb-2">links</div>
                             <ul class="list-unstyled">
-                                <li><a class="hover:text-lime-800 block pb-2 text-sm" :href="route('static.imprint')">Impressum</a></li>
-                                <li><a class="hover:text-lime-800 block pb-2 text-sm" :href="route('static.privacy')">Datenschutzhinweise</a></li>
-                                <li><a class="hover:text-lime-800 block pb-2 text-sm" :href="route('static.contact')">Kontakt</a></li>
+                                <li>
+                                    <Link class="hover:text-lime-800 block pb-2 text-sm" :href="route('static.imprint')">Impressum</Link>
+                                </li>
+                                <li>
+                                    <Link class="hover:text-lime-800 block pb-2 text-sm" :href="route('static.privacy')">Datenschutzhinweise</Link>
+                                </li>
+                                <li>
+                                    <Link class="hover:text-lime-800 block pb-2 text-sm" :href="route('static.contact')">Kontakt</Link>
+                                </li>
                             </ul>
                         </div>
                         <div class="w-full md:w-6/12 xl:w-4/12 pt-6 md:pt-0 md:px-4 ml-auto">
                             <span class="uppercase text-xs mb-2">resources</span>
                             <ul class="list-unstyled">
-                                <li><a class="hover:text-lime-800 block pb-2 text-sm" href="#todo">API Documentation</a></li>
+                                <li><Link class="hover:text-lime-800 block pb-2 text-sm" href="#todo">API Documentation</Link></li>
                                 <li><a class="hover:text-lime-800 block pb-2 text-sm" href="https://saparot.io" target="_blank">saparot.io</a></li>
                             </ul>
                         </div>
@@ -59,5 +65,7 @@
     </footer>
 </template>
 <script setup>
+import {Link} from '@inertiajs/inertia-vue3';
+
 const year = new Date().getFullYear();
 </script>

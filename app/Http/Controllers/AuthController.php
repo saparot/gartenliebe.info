@@ -39,7 +39,7 @@ class AuthController extends Controller {
         return redirect()->route('landingpage.index')->with('flashMessageSuccess', 'Login success!');
     }
 
-    public function logout (Request $request) {
+    public function logout (Request $request): RedirectResponse {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
