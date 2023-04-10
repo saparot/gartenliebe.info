@@ -30,7 +30,7 @@
 <script setup>
 import {ArrowLeftOnRectangleIcon} from '@heroicons/vue/24/solid';
 import {routeBlog} from '~lib/routes';
-import {useForm} from '@inertiajs/inertia-vue3';
+import {useForm} from '@inertiajs/vue3';
 import {computed} from 'vue';
 import {modelBlogPost} from '~lib/models/modelBlogPost';
 

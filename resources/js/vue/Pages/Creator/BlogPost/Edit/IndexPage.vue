@@ -62,7 +62,7 @@
 </template>
 
 <script setup>
-import {useForm} from '@inertiajs/inertia-vue3';
+import {useForm} from '@inertiajs/vue3';
 import {ArrowLeftOnRectangleIcon} from '@heroicons/vue/24/solid';
 import {routeBlog} from '~lib/routes';
 import {modelBlogPost} from '~lib/models/modelBlogPost';

@@ -27,8 +27,8 @@ import {PlusIcon} from '@heroicons/vue/24/solid';
 import BlogPostBox from '~olive/BlogPostBox.vue';
 import PaginationClassic from '~olive/PaginationClassic.vue';
 import {computed} from 'vue';
-import {usePage} from '@inertiajs/inertia-vue3';
 import {routeBlog} from '~lib/routes';
+import {usePage} from '@inertiajs/vue3';
 
 const page = usePage({
     isCreator: {
@@ -42,5 +42,5 @@ const props = defineProps({
     },
 });
 
-const isCreator = computed(() => page.props.value.isCreator);
+const isCreator = computed(() => page.props.isCreator);
 </script>

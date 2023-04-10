@@ -13,10 +13,10 @@
 </template>
 
 <script setup>
-import {Link, usePage} from '@inertiajs/inertia-vue3';
+import {Link, usePage} from '@inertiajs/vue3';
 import {computed} from 'vue';
 
 const page = usePage();
-const locale = computed(() => page.props.value.locale === 'en' ? 'de' : 'en');
-const localeGiven = computed(() => page.props.value.locale === 'en' ? 'en' : 'de');
+const locale = computed(() => page.props.locale === 'en' ? 'de' : 'en');
+const localeGiven = computed(() => page.props.locale === 'en' ? 'en' : 'de');
 </script>
