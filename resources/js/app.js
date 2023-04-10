@@ -8,6 +8,7 @@ import {FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText} from '@fortaw
 import {faTwitter, faGithub} from '@fortawesome/free-brands-svg-icons';
 import {faCircle, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import '../css/app.css';
+import {vueMixins} from './vue/bootstrap/vueMixins';
 
 import.meta.glob([
     '../images/**',
@@ -35,6 +36,11 @@ createInertiaApp({
         createApp({render: () => h(App, props)})
         .use(plugin)
         .use(ZiggyVue)
+        .mixin({
+            methods : {
+                __ : vueMixins.i18n
+            }
+        })
         .component('font-awesome-icon', FontAwesomeIcon)
         .component('font-awesome-layers', FontAwesomeLayers)
         .component('font-awesome-layer-text', FontAwesomeLayersText)

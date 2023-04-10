@@ -18,9 +18,9 @@
                 </div>
 
                 <div class="flex justify-end">
-                    <a :href="route(linkShow, { blog })" class="button-primary">{{ linkTextShow }}</a>
-                    <a v-if="creatorMode && isCreator" :href="route(routeBlog.creator.edit, { blog })" class="button-secondary">Edit</a>
-                    <a v-if="creatorMode && isCreator" :href="route(routeBlog.creator.image.create, { blog })" class="button-secondary">Image create</a>
+                    <a :href="route(linkShow, { blog })" class="button-primary">{{ __(linkTextShow) }}</a>
+                    <a v-if="creatorMode && isCreator" :href="route(routeBlog.creator.edit, { blog })" class="button-secondary">{{ __('general.models.edit') }}</a>
+                    <a v-if="creatorMode && isCreator" :href="route(routeBlog.creator.image.create, { blog })" class="button-secondary">{{ __('general.models.images.upload') }}</a>
 
                 </div>
             </div>
@@ -47,6 +47,6 @@ const props = defineProps({
 
 console.log(routeBlog);
 const linkShow = props.creatorMode ? routeBlog.creator.show : routeBlog.show;
-const linkTextShow = props.creatorMode ? 'Preview' : 'Read';
+const linkTextShow = props.creatorMode ? 'general.models.previews' : 'general.models.read';
 
 </script>

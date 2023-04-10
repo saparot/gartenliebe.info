@@ -15,14 +15,12 @@
 
             <Link v-for="item in menuItems" class="hover:text-gray-500"
                   :class="item.isActive ? 'color-primary' : 'text-gray-400'"
-                  :href="route(item.url)">{{
-                    item.name
-                }}
+                  :href="route(item.url)">{{ __(item.name) }}
             </Link>
         </div>
 
         <div class="hidden lg:flex items-center">
-            <!--darkmode selector        -->
+            <!--dark-mode selector        -->
             <dark-mode-selector additional-classes="hidden lg:block"/>
 
             <div v-if="isLoggedIn" class="mr-2">{{ user.name }}</div>
@@ -37,6 +35,9 @@
                   class="lg:mr-3 py-3 px-6 text-white font-semibold leading-none bg-primary hover:bg-primary-light hover:color-primary rounded-md whitespace-nowrap"
                   :href="route(routeAccount.signUp)">Sign Up
             </Link>
+        </div>
+        <div class="hidden lg:flex items-center">
+            <LanguageSelector/>
         </div>
 
         <!--hamburger menu        -->
@@ -71,13 +72,16 @@
                 <ul>
                     <li v-for="item in menuItems" class="mb-1">
                         <Link class="block p-4 text-sm font-semibold text-gray-400 hover:bg-primary-light hover:color-primary rounded" :href="route(item.url)">{{
-                                item.name
+                                __(item.name)
                             }}
                         </Link>
                     </li>
                 </ul>
             </div>
             <div class="mt-auto">
+                <div>
+                    <LanguageSelector/>
+                </div>
                 <!--darkmode selector        -->
                 <dark-mode-selector open-direction="right"/>
                 <div class="pt-6">
@@ -116,6 +120,7 @@ import logoUrl from '/resources/images/logo/logo.svg';
 import {computed, ref} from 'vue';
 import {Link, usePage} from '@inertiajs/inertia-vue3';
 import {routeAccount, routeBlog} from '~lib/routes';
+import LanguageSelector from './LanguageSelector.vue';
 
 const page = usePage();
 
@@ -127,13 +132,13 @@ const isCreator = computed(() => page.props.value.isCreator);
 const isLoggedIn = computed(() => page.props.value.isLoggedIn);
 
 const menuItemsPrepare = [
-    {url: routeBlog.list, name: 'Pflanzenlexikon', isActive: true},
-    {url: routeBlog.list, name: 'News', isActive: false},
-    {url: routeBlog.list, name: 'Blog', isActive: false},
-    {url: routeBlog.list, name: 'Rezepte', isActive: false},
+    {url: routeBlog.list, name: 'nav.menu.main.plantEncyclopedia', isActive: true},
+    {url: routeBlog.list, name: 'nav.menu.main.news', isActive: false},
+    {url: routeBlog.list, name: 'nav.menu.main.blog', isActive: false},
+    {url: routeBlog.list, name: 'nav.menu.main.recipes', isActive: false},
 ];
 if (isCreator) {
-    menuItemsPrepare.push({url: routeBlog.creator.list, name: 'Blog Creator', isActive: false});
+    menuItemsPrepare.push({url: routeBlog.creator.list, name: 'nav.menu.main.creator.blog', isActive: false});
 }
 
 const menuItems = ref(menuItemsPrepare);

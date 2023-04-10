@@ -4,22 +4,21 @@
            :href="route(routeBlog.list)">
 
             <ArrowLeftOnRectangleIcon class="h-4"/>
-            Blog Overview
+            {{ __('blogposts.overview') }}
         </a>
     </div>
     <h1 class="headline-1">{{ blogPost.title_de }}</h1>
-
     <div>
         {{ blogPost.content_de }}
-
     </div>
 </template>
 <script setup>
 import {ArrowLeftOnRectangleIcon} from '@heroicons/vue/24/solid';
 import {routeBlog} from '~lib/routes';
+import {modelBlogPost} from '~lib/models/modelBlogPost';
 
 const props = defineProps({
-    blogPost: Object,
+    blogPost: modelBlogPost,
 });
 
 </script>

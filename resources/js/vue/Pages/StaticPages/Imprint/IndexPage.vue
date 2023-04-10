@@ -1,23 +1,26 @@
 <template>
-    <ImprintGerman
-        v-if="languageIso === 'de'"
-        :address="props.address"
-        :contactEmail="props.contactEmail"
-        :contactPhone="props.contactPhone"
-    />
-    <ImprintEnglish
-        v-else
-        :address="props.address"
-        :contactEmail="props.contactEmail"
-        :contactPhone="props.contactPhone"
-    />
-
+    <div class="mx-auto md:w-1/3">
+        <h1 class="headline-1">{{ __('static.pages.imprint.title') }}</h1>
+        <h2 class="headline-2">{{ __('static.pages.imprint.tmg') }}</h2>
+        <div class="mb-2">
+            <div v-for="addressLine in address">
+                {{ addressLine }}
+            </div>
+        </div>
+        <h3 class="headline-3">{{ __('static.pages.imprint.contact') }}</h3>
+        <div class="mb-2">
+            <div>{{ __('static.pages.imprint.contact') }}: {{ contactPhone }}</div>
+            <div>{{ __('static.pages.imprint.contact') }}: {{ contactEmail }}</div>
+        </div>
+        <h2 class="headline-2">{{ __('static.pages.imprint.content.responsible') }}</h2>
+        <div v-for="addressLine in address">
+            {{ addressLine }}
+        </div>
+    </div>
 </template>
 <script setup>
 import {computed} from 'vue';
 import {usePage} from '@inertiajs/inertia-vue3';
-import ImprintGerman from './ImprintGerman.vue';
-import ImprintEnglish from './ImprintEnglish.vue';
 
 const props = defineProps({
     address: Array,
@@ -25,7 +28,6 @@ const props = defineProps({
     contactPhone: String,
 });
 
-console.log(props);
 const page = usePage();
-const languageIso = computed(() => page.props.value.languageIso);
+const locale = computed(() => page.props.value.locale);
 </script>

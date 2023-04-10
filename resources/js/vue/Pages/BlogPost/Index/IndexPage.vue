@@ -1,6 +1,6 @@
 <template>
 
-    <h1 class="headline-1">Latest blog posts</h1>
+    <h1 class="headline-1">{{ __('blogposts.title.latest') }}</h1>
 
     <div
         v-if="isCreator"
@@ -9,7 +9,7 @@
            :href="route(routeBlog.creator.create)">
 
             <PlusIcon class="h-4"/>
-            Blog-Post
+            {{ __('blogposts.blogpost.title') }}
         </a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mb-4">
@@ -38,8 +38,8 @@ const page = usePage({
 });
 const props = defineProps({
     blogs: {
-        data: Array
-    }
+        data: Array,
+    },
 });
 
 const isCreator = computed(() => page.props.value.isCreator);
