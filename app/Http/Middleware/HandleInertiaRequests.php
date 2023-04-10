@@ -37,7 +37,7 @@ class HandleInertiaRequests extends Middleware {
      *
      * @param \Illuminate\Http\Request $request
      *
-     * @return array
+     * @return array<string, array<string>>
      */
     public function share (Request $request): array {
         return array_merge(parent::share($request), [
@@ -62,7 +62,7 @@ class HandleInertiaRequests extends Middleware {
     /**
      * this may result in a hughe amount of data, should be optimized once
      *
-     * @return array
+     * @return array<string, string>
      * @throws Exception
      */
     private function getLanguageSnippetsAll (): array {
@@ -71,8 +71,8 @@ class HandleInertiaRequests extends Middleware {
             return [];
         }
 
-        $result = json_decode(file_get_contents($path), true);
-        if (json_last_error()) {
+        $result = json_decode(file_get_contents($path) ?: '', true);
+        if (json_last_error() || empty($result)) {
             throw new Exception(sprintf('failed to parse translations for language %s', app()->getLocale()));
         }
 

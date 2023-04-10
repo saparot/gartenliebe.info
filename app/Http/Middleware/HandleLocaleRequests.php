@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class HandleLocaleRequests {
 
-    public function handle (Request $request, Closure $next) {
+    public function handle (Request $request, Closure $next): mixed {
         app()->setLocale(config('app.locale'));
 
         if (session()->has('locale')) {

@@ -34,7 +34,7 @@ class StaticPagesController extends Controller {
     }
 
     /**
-     * @return array
+     * @return array<string>
      * @throws ImprintEmptyException
      */
     private function getAddressLines (): array {
