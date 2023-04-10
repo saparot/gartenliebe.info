@@ -20,7 +20,7 @@
 </template>
 <script setup>
 import {computed} from 'vue';
-import {usePage} from '@inertiajs/inertia-vue3';
+import {usePage} from '@inertiajs/vue3';
 
 const props = defineProps({
     address: Array,
@@ -28,6 +28,5 @@ const props = defineProps({
     contactPhone: String,
 });
 
-const page = usePage();
-const locale = computed(() => page.props.value.locale);
+const locale = computed(() => usePage().props.locale);
 </script>

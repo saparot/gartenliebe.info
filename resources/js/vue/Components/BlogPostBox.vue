@@ -33,10 +33,9 @@
 import {routeBlog} from '~lib/routes';
 import Box from '~olive/Box.vue';
 import {computed} from 'vue';
-import {usePage} from '@inertiajs/inertia-vue3';
+import {usePage} from '@inertiajs/vue3';
 
-const page = usePage();
-const isCreator = computed(() => page.props.value.isCreator);
+const isCreator = computed(() => usePage().props.isCreator);
 const props = defineProps({
     blog: Object,
     creatorMode: {
@@ -45,8 +44,6 @@ const props = defineProps({
     },
 });
 
-console.log(routeBlog);
 const linkShow = props.creatorMode ? routeBlog.creator.show : routeBlog.show;
-const linkTextShow = props.creatorMode ? 'general.models.previews' : 'general.models.read';
-
+const linkTextShow = props.creatorMode ? 'general.models.preview' : 'general.models.read';
 </script>
