@@ -31,6 +31,9 @@ class BlogPostImage extends Model {
 
     protected $fillable = ['filename'];
 
+    /**
+     * @return BelongsTo<BlogPost, BlogPostImage>
+     */
     public function listing (): BelongsTo {
         return $this->belongsTo(BlogPost::class);
     }

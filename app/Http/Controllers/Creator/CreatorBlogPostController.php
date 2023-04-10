@@ -58,7 +58,7 @@ class CreatorBlogPostController extends Controller {
         );
     }
 
-    public function update (Request $request, BlogPost $blog) {
+    public function update (Request $request, BlogPost $blog): RedirectResponse {
         $blog->update(
             $request->validate([
                 'title_de' => 'required|string',
@@ -78,7 +78,7 @@ class CreatorBlogPostController extends Controller {
      *
      * @return Response
      */
-    public function destroy ($id) {
-        //
+    public function destroy ($id): Response {
+        throw new \Exception('not implemented');
     }
 }

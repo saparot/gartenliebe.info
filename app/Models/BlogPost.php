@@ -39,10 +39,16 @@ class BlogPost extends Model {
 
     protected $fillable = ['title_de', 'content_de', 'seo_keywords', 'status'];
 
+    /**
+     * @return BelongsTo<User, BlogPost>
+     */
     public function owner (): BelongsTo {
         return $this->belongsTo(User::class, 'by_user_id');
     }
 
+    /**
+     * @return HasMany<BlogPostImage>
+     */
     public function images (): HasMany {
         return $this->hasMany(BlogPostImage::class);
     }

@@ -16,3 +16,6 @@ cache-clear:
 	@php artisan cache:clear
 	@php artisan route:clear
 	@php artisan view:clear
+
+dev-phpstan:
+	@./vendor/bin/phpstan analyse --memory-limit=2G

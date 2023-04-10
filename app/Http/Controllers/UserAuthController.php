@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +16,7 @@ class UserAuthController extends Controller {
         return inertia('UserAccount/Create');
     }
 
-    public function store (Request $request) {
+    public function store (Request $request): RedirectResponse {
         $user = User::create(
             $request->validate([
                 'name' => 'required|string|min:2',

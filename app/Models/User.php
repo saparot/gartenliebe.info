@@ -72,6 +72,9 @@ class User extends Authenticatable {
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return Attribute<string, string>
+     */
     protected function password (): Attribute {
         return Attribute::make(
             get: fn($value) => $value,
