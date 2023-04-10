@@ -28,9 +28,8 @@ import NavigationBar from '~olive/NavigationBar.vue';
 import Footer from '/resources/js/vue/Layouts/Footer.vue';
 import {usePage} from '@inertiajs/vue3';
 
-const page = usePage();
-const flashMessageSuccess = computed(() => page.props.flashMessage.success);
-const flashMessageError = computed(() => page.props.flashMessage.error);
-const flashMessageWarning = computed(() => page.props.flashMessage.warning);
+const flashMessageSuccess = computed(() => usePage().props.flashMessage.success);
+const flashMessageError = computed(() => usePage().props.flashMessage.error);
+const flashMessageWarning = computed(() => usePage().props.flashMessage.warning);
 
 </script>

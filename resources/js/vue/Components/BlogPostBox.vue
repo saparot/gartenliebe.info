@@ -35,8 +35,7 @@ import Box from '~olive/Box.vue';
 import {computed} from 'vue';
 import {usePage} from '@inertiajs/vue3';
 
-const page = usePage();
-const isCreator = computed(() => page.props.isCreator);
+const isCreator = computed(() => usePage().props.isCreator);
 const props = defineProps({
     blog: Object,
     creatorMode: {

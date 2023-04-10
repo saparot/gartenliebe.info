@@ -122,14 +122,12 @@ import {Link, usePage} from '@inertiajs/vue3';
 import {routeAccount, routeBlog} from '~lib/routes';
 import LanguageSelector from './LanguageSelector.vue';
 
-const page = usePage();
-
 const showHamburgerMenu = ref(false);
 const toggleHamburgerMenu = () => showHamburgerMenu.value ? showHamburgerMenu.value = false : showHamburgerMenu.value = true;
-const projectName = computed(() => page.props.projectName);
-const user = computed(() => page.props.user);
-const isCreator = computed(() => page.props.isCreator);
-const isLoggedIn = computed(() => page.props.isLoggedIn);
+const projectName = computed(() => usePage().props.projectName);
+const user = computed(() => usePage().props.user);
+const isCreator = computed(() => usePage().props.isCreator);
+const isLoggedIn = computed(() => usePage().props.isLoggedIn);
 
 const menuItemsPrepare = [
     {url: routeBlog.list, name: 'nav.menu.main.plantEncyclopedia', isActive: true},

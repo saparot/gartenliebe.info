@@ -28,6 +28,5 @@ const props = defineProps({
     contactPhone: String,
 });
 
-const page = usePage();
-const locale = computed(() => page.props.locale);
+const locale = computed(() => usePage().props.locale);
 </script>
