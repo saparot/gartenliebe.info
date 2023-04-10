@@ -1,7 +1,7 @@
 +
 <template>
 
-    <h1 class="headline-1">Latest blog posts</h1>
+    <h1 class="headline-1">{{ __('blogposts.title.latest')}}</h1>
 
     <div class="flex justify-end mb-4">
         <a class="button-primary flex"

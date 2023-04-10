@@ -15,9 +15,7 @@
 
             <Link v-for="item in menuItems" class="hover:text-gray-500"
                   :class="item.isActive ? 'color-primary' : 'text-gray-400'"
-                  :href="route(item.url)">{{
-                    item.name
-                }}
+                  :href="route(item.url)">{{ __(item.name) }}
             </Link>
         </div>
 
@@ -74,7 +72,7 @@
                 <ul>
                     <li v-for="item in menuItems" class="mb-1">
                         <Link class="block p-4 text-sm font-semibold text-gray-400 hover:bg-primary-light hover:color-primary rounded" :href="route(item.url)">{{
-                                item.name
+                                __(item.name)
                             }}
                         </Link>
                     </li>
@@ -134,13 +132,13 @@ const isCreator = computed(() => page.props.value.isCreator);
 const isLoggedIn = computed(() => page.props.value.isLoggedIn);
 
 const menuItemsPrepare = [
-    {url: routeBlog.list, name: 'Pflanzenlexikon', isActive: true},
-    {url: routeBlog.list, name: 'News', isActive: false},
-    {url: routeBlog.list, name: 'Blog', isActive: false},
-    {url: routeBlog.list, name: 'Rezepte', isActive: false},
+    {url: routeBlog.list, name: 'nav.menu.main.plantEncyclopedia', isActive: true},
+    {url: routeBlog.list, name: 'nav.menu.main.news', isActive: false},
+    {url: routeBlog.list, name: 'nav.menu.main.blog', isActive: false},
+    {url: routeBlog.list, name: 'nav.menu.main.recipes', isActive: false},
 ];
 if (isCreator) {
-    menuItemsPrepare.push({url: routeBlog.creator.list, name: 'Blog Creator', isActive: false});
+    menuItemsPrepare.push({url: routeBlog.creator.list, name: 'nav.menu.main.creator.blog', isActive: false});
 }
 
 const menuItems = ref(menuItemsPrepare);

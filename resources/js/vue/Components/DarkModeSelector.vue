@@ -27,7 +27,7 @@
                      id="menu-item-0"
                 >
                     <MoonIcon class="h-6 w-6 mr-2"/>
-                    <div>Dark</div>
+                    <div>{{ __('nav.control.view.darkMode') }}</div>
                 </div>
 
                 <div @click="darkModeHandler.darkModeLight(); toggleDropDown();"
@@ -37,7 +37,7 @@
                      id="menu-item-1"
                 >
                     <SunIcon class="h-6 w-6 text-lime-700 dark:text-white mr-2"/>
-                    <div>Light</div>
+                    <div>{{ __('nav.control.view.lightMode') }}</div>
 
                 </div>
                 <div @click="darkModeHandler.darkModeAuto(); toggleDropDown();"
@@ -47,7 +47,7 @@
                      id="menu-item-2"
                 >
                     <TvIcon class="h-6 w-6 text-lime-700 dark:text-white mr-2"/>
-                    <div>System</div>
+                    <div>{{ __('nav.control.view.systemMode') }}</div>
                 </div>
             </div>
         </div>

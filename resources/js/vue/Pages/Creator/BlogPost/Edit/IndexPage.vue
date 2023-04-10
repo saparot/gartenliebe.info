@@ -1,20 +1,20 @@
 <template>
 
-    <h1 class="headline-1">Edit Blog Post</h1>
+    <h1 class="headline-1">{{ __('blogposts.blogpost.edit') }}</h1>
 
     <div class="flex justify-end mb-4">
         <a class="button-secondary flex"
            :href="route(routeBlog.creator.list)">
 
             <ArrowLeftOnRectangleIcon class="h-4"/>
-            Blog Overview
+            {{ __('blogposts.overview') }}
         </a>
     </div>
 
     <form @submit.prevent="update">
         <div class="container md:container md:mx-auto">
             <div class="col-span-2 mt-4">
-                <label for="titleDe">Title (de)</label>
+                <label for="titleDe">{{ __('blogpost.attribute.titleDE') }}</label>
                 <input type="text" v-model.number="blogPostEdit.title_de" class="input">
                 <div v-if="blogPostEdit.errors.title_de" class="error">
                     {{ blogPostEdit.errors.title_de }}
@@ -22,7 +22,7 @@
             </div>
 
             <div class="col-span-2 mt-4">
-                <label for="seoKeywords">SEO Keywords</label>
+                <label for="seoKeywords">{{ __('blogpost.attribute.seo') }}</label>
                 <input type="text" v-model.number="blogPostEdit.seo_keywords" class="input">
                 <div v-if="blogPostEdit.errors.seo_keywords" class="error">
                     {{ blogPostEdit.errors.seo_keywords }}
@@ -30,7 +30,7 @@
             </div>
 
             <div class="col-span-2 mt-4">
-                <label for="contentDe">Blogpost</label>
+                <label for="contentDe">{{ __('blogpost.attribute.contentDE') }}</label>
                 <textarea v-model.number="blogPostEdit.content_de" class="input h-64"></textarea>
                 <div v-if="blogPostEdit.errors.content_de" class="error">
                     {{ blogPostEdit.errors.content_de }}
@@ -38,13 +38,13 @@
             </div>
 
             <div class="col-span-2 mt-4">
-                <label for="status">Status ({{ blogPostEdit.status }})</label>
+                <label for="status">{{ __('blogpost.attribute.status') }} ({{ blogPostEdit.status }})</label>
                 <select class="input"
                         v-model.number="blogPostEdit.status"
                 >
-                    <option value="preview">Preview</option>
-                    <option value="published">Published</option>
-                    <option value="unpublished">Not Published</option>
+                    <option value="preview">{{ __('blogposts.status.preview') }}</option>
+                    <option value="published">{{ __('blogposts.status.published') }}</option>
+                    <option value="unpublished">{{ __('blogposts.status.unpublished') }}</option>
                 </select>
 
                 <div v-if="blogPostEdit.errors.status" class="error">
@@ -53,7 +53,7 @@
             </div>
 
             <div class="mt-4">
-                <button type="submit" class="button-primary w-full">Save</button>
+                <button type="submit" class="button-primary w-full">{{ __('general.nav.save') }}</button>
             </div>
         </div>
     </form>
@@ -65,9 +65,10 @@
 import {useForm} from '@inertiajs/inertia-vue3';
 import {ArrowLeftOnRectangleIcon} from '@heroicons/vue/24/solid';
 import {routeBlog} from '~lib/routes';
+import {modelBlogPost} from '~lib/models/modelBlogPost';
 
 const props = defineProps({
-    blog: Object,
+    blog: modelBlogPost,
 });
 
 const blogPostEdit = useForm({
