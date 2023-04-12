@@ -34,6 +34,8 @@ export const darkMode = () => {
 
     };
 
+    const isDarkMode = () => (getColorSchemeCurrent() === MODE_DARK);
+
     const toggle = () => {
         const modeNew = getColorSchemeCurrent() === MODE_DARK ? MODE_LIGHT : MODE_DARK;
         if (modeNew === MODE_LIGHT) darkModeDisable();
@@ -68,5 +70,5 @@ export const darkMode = () => {
         darkModeDisable();
     };
 
-    return {init, darkModeDark, darkModeLight, darkModeAuto, toggle, getColorSchemeCurrent, modeCurrent};
+    return {init, isDarkMode, darkModeDark, darkModeLight, darkModeAuto, toggle, getColorSchemeCurrent, modeCurrent};
 };

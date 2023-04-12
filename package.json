@@ -23,6 +23,7 @@
         "@fortawesome/free-solid-svg-icons": "^6.3.0",
         "@fortawesome/vue-fontawesome": "^3.0.3",
         "@heroicons/vue": "^2.0.13",
-        "@inertiajs/vue3": "^1.0.2"
+        "@inertiajs/vue3": "^1.0.2",
+        "md-editor-v3": "^2.11.0"
     }
 }

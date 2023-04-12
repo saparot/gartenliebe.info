@@ -31,7 +31,11 @@
 
             <div class="col-span-2 mt-4">
                 <label for="contentDe">{{ __('blogpost.attribute.contentDE') }}</label>
-                <textarea v-model.number="blogPostEdit.content_de" class="input h-64"></textarea>
+                <MdEditor
+                    v-model.number="blogPostEdit.content_de"
+                    theme="dark"
+                    language="en-US"
+                />
                 <div v-if="blogPostEdit.errors.content_de" class="error">
                     {{ blogPostEdit.errors.content_de }}
                 </div>
@@ -66,6 +70,8 @@ import {useForm} from '@inertiajs/vue3';
 import {ArrowLeftOnRectangleIcon} from '@heroicons/vue/24/solid';
 import {routeBlog} from '~lib/routes';
 import {modelBlogPost} from '~lib/models/modelBlogPost';
+import MdEditor from 'md-editor-v3';
+import 'md-editor-v3/lib/style.css';
 
 const props = defineProps({
     blog: modelBlogPost,
@@ -78,6 +84,6 @@ const blogPostEdit = useForm({
     status: props.blog.status,
 });
 
-const update = () => blogPostEdit.patch(route('blog.update', {blog: props.blog}));
+const update = () => blogPostEdit.patch(route(routeBlog.creator.update, {blog: props.blog}));
 
 </script>

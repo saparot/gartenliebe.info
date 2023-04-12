@@ -91,3 +91,7 @@
     }
 
 }
+
+.md-editor-dark {
+    --md-bk-color: #1F2937 !important;
+}
