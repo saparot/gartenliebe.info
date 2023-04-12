@@ -33,6 +33,4 @@ const props = defineProps({
 });
 
 const theme = computed(() => darkMode().isDarkMode() ? 'dark' : 'light');
-
-
 </script>
