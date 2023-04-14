@@ -32,7 +32,6 @@
         @apply py-2 px-4 rounded-md;
     }
 
-
     .text-primary, .color-primary {
         @apply text-lime-700;
     }
@@ -101,5 +100,5 @@
 }
 
 .md-editor-dark {
-    --md-bk-color: #1F2937 !important;
+    --md-bk-color: none !important;
 }
