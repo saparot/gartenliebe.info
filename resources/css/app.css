@@ -15,9 +15,16 @@
 
 @layer components {
 
+    .gradient-corner {
+        background-image: url(/images/bg/gradient-corner.svg);
+        background-repeat: no-repeat;
+        background-size: 55%;
+    }
+
     /* ----  without concept start ---------------------------------------- */
     .green-tree {
-        color: #606c38;
+        /*color: #606c38;*/
+        @apply text-lime-700;
     }
 
     /* ----  without concept end ---------------------------------------- */
@@ -25,8 +32,9 @@
         @apply py-2 px-4 rounded-md;
     }
 
-    .color-primary {
-        @apply text-lime-800;
+
+    .text-primary, .color-primary {
+        @apply text-lime-700;
     }
 
     .color-secondary {

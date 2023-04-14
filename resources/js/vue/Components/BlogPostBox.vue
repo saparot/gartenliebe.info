@@ -7,8 +7,8 @@
             <!--                 class="object-cover w-2/5 border-r2 border-lime-700"-->
             <!--            >-->
 
-            <div class="bg-gray-200 dark:bg-gray-900 w-full flex flex-col justify-between py-0.5 pl-1">
-                <div class="dark:text-lime-800 font-bold mb-1">
+            <div class="bg-gray-200 dark:bg-gray-950 w-full flex flex-col justify-between py-0.5 pl-1">
+                <div class="dark:text-primary font-bold mb-1">
                     {{ blog.title_de }}
                 </div>
                 <div class="relative">

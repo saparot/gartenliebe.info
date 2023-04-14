@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1800">
+    <path fill="url(#corner-gradient)" d="M10 0h1800v1800H0z"/>
+    <linearGradient id="corner-gradient" x1="0" y1="0" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+<!--        <stop stop-color="#223C6A"/>-->
+        <stop stop-color="#083344"/>
+        <stop offset="1" stop-color="#111827" stop-opacity="00"/>
+    </linearGradient>
+</svg>

@@ -1,5 +1,6 @@
 <template>
-    <header class="bg-gray-200 dark:bg-gray-900 mb-4">
+
+    <header class="bg-gray-200 dark:bg-transparent mb-4">
         <navigation-bar/>
         <div class="h-0.5 bg-lime-800"></div>
     </header>
@@ -15,7 +16,7 @@
             {{ flashMessageError }}
         </section>
 
-        <div class="container dark:bg-gray-800 dark:text-gray-300 mx-auto min-h-screen px-4 lg:px-0">
+        <div class="container dark:bg-transparent dark:text-gray-300 mx-auto min-h-screen px-4 lg:px-0">
             <slot/>
         </div>
     </main>
