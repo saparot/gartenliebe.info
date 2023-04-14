@@ -34,13 +34,13 @@
                             <div class="uppercase text-xs mb-2">{{ __('nav.footer.links.title') }}</div>
                             <ul class="list-unstyled">
                                 <li>
-                                    <Link class="hover:text-lime-800 block pb-2 text-sm" :href="route('static.imprint')">{{ __('nav.footer.imprint') }}</Link>
+                                    <Link class="hover:text-primary block pb-2 text-sm" :href="route('static.imprint')">{{ __('nav.footer.imprint') }}</Link>
                                 </li>
                                 <li>
-                                    <Link class="hover:text-lime-800 block pb-2 text-sm" :href="route('static.privacy')">{{ __('nav.footer.privacy') }}</Link>
+                                    <Link class="hover:text-primary block pb-2 text-sm" :href="route('static.privacy')">{{ __('nav.footer.privacy') }}</Link>
                                 </li>
                                 <li>
-                                    <Link class="hover:text-lime-800 block pb-2 text-sm" :href="route('static.contact')">{{ __('nav.footer.contact') }}</Link>
+                                    <Link class="hover:text-primary block pb-2 text-sm" :href="route('static.contact')">{{ __('nav.footer.contact') }}</Link>
                                 </li>
                             </ul>
                         </div>
@@ -48,9 +48,9 @@
                             <span class="uppercase text-xs mb-2">{{ __('nav.resources.title') }}</span>
                             <ul class="list-unstyled">
                                 <li id="todo">
-                                    <Link class="hover:text-lime-800 block pb-2 text-sm" href="#todo">{{ __('nav.resources.apiDocumentation') }}</Link>
+                                    <Link class="hover:text-primary block pb-2 text-sm" href="#todo">{{ __('nav.resources.apiDocumentation') }}</Link>
                                 </li>
-                                <li><a class="hover:text-lime-800 block pb-2 text-sm" href="https://saparot.io" target="_blank">saparot.io</a></li>
+                                <li><a class="hover:text-primary block pb-2 text-sm" href="https://saparot.io" target="_blank">saparot.io</a></li>
                             </ul>
                         </div>
                     </div>
