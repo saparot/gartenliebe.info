@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware {
@@ -41,7 +40,7 @@ class HandleInertiaRequests extends Middleware {
      */
     public function share (Request $request): array {
         return array_merge(parent::share($request), [
-            'projectName' => 'gartenliebe.info',
+            'projectName' => env('APP_NAME'),
             'locale' => app()->getLocale(),
             'languageSnippets' => $this->getLanguageSnippetsAll(),
             'flashMessage' => [
@@ -49,6 +48,8 @@ class HandleInertiaRequests extends Middleware {
                 'warning' => $request->session()->get('flashMessageWarning'),
                 'error' => $request->session()->get('flashMessageError'),
             ],
+            'cookieName' => self::getCookieName(),
+            'forceCookieConsent' => $this->isCookieConsentForced($request),
             'isLoggedIn' => (bool) $request->user(),
             'isCreator' => (bool) $request->user(),
             'user' => $request->user() ? [
@@ -77,5 +78,13 @@ class HandleInertiaRequests extends Middleware {
         }
 
         return $result;
+    }
+
+    private function isCookieConsentForced (Request $request): bool {
+        return empty($request->cookie(self::getCookieName()));
+    }
+
+    static public function getCookieName (): string {
+        return preg_replace('/[^\da-z]/i', '', trim(mb_strtolower(env('APP_NAME'))));
     }
 }
