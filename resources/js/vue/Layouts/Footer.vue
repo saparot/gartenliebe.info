@@ -40,6 +40,9 @@
                                     <Link class="hover:text-primary block pb-2 text-sm" :href="route('static.privacy')">{{ __('nav.footer.privacy') }}</Link>
                                 </li>
                                 <li>
+                                    <div class="hover:text-primary block pb-2 text-sm" @click="openConsent">{{ __('nav.footer.consent') }}</div>
+                                </li>
+                                <li>
                                     <Link class="hover:text-primary block pb-2 text-sm" :href="route('static.contact')">{{ __('nav.footer.contact') }}</Link>
                                 </li>
                             </ul>
@@ -61,13 +64,29 @@
             <div class="mx-auto text-center text-sm py-1">© 2020 - {{ year }}
                 <a href="https://saparot.io" class="hover:text-blueGray-600 font-semibold" target="_blank">saparot.io</a>. {{ __('nav.footer.rights.reserved') }}
             </div>
-
-
         </div>
+        <cookie-consent-modal
+            :showConsentSettings="isConsentModalActive"
+            :closeSettings="closeSettings"
+        />
     </footer>
 </template>
 <script setup>
 import {Link} from '@inertiajs/vue3';
+import CookieConsentModal from '~olive/CookieConsentModal.vue';
+import {ref} from 'vue';
+
+const isConsentModalActive = ref(false);
+
+const openConsent = () => {
+    console.log('calling me');
+    isConsentModalActive.value = true;
+    console.log('calling done');
+};
+
+const closeSettings = () => {
+    isConsentModalActive.value = false;
+};
 
 const year = new Date().getFullYear();
 </script>
