@@ -79,9 +79,7 @@ import {ref} from 'vue';
 const isConsentModalActive = ref(false);
 
 const openConsent = () => {
-    console.log('calling me');
     isConsentModalActive.value = true;
-    console.log('calling done');
 };
 
 const closeSettings = () => {
