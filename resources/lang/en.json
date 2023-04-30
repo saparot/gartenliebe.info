@@ -27,6 +27,7 @@
     "nav.footer.imprint": "Imprint",
     "nav.footer.links.title": "Links",
     "nav.footer.privacy": "Privacy Policy",
+    "nav.footer.consent": "Cookie Consent",
     "nav.footer.rights.reserved": "All rights reserved.",
     "nav.footer.teaser.findMeOnPlatforms": "Find me on any of these platforms, I try to response quick.",
     "nav.footer.teaser.keepInTouch": "Let's keep in touch!",
@@ -43,5 +44,21 @@
     "static.pages.imprint.email": "Mail",
     "static.pages.imprint.phone": "Phone",
     "static.pages.imprint.title": "Imprint",
-    "static.pages.imprint.tmg": "Information according to § 5 TMG"
+    "static.pages.imprint.tmg": "Information according to § 5 TMG",
+    "cookieConsent.button.accept.all": "Accept all",
+    "cookieConsent.button.accept.selected": "Selected only",
+    "cookieConsent.button.accept.requiredOnly": "Accept only required",
+    "cookieConsent.modalMain.title": "Data protection & transparency",
+    "cookieConsent.modalMain.info": "We use cookies to better understand your experience and interaction in order to improve it, to personalize content and (advertising) ads for you, as well as to enable social media features.",
+    "cookieConsent.settings.adjust": "Adjust settings",
+    "cookieConsent.settings.info": "Our website maintains three categories of cookies. You can change your own preferences at any time. You can read more about what cookies are and what cookies we collect in our :cookiePolicy.",
+    "cookieConsent.category.analytics.title": "Analytical cookies",
+    "cookieConsent.category.analytics.text": "Allow us to analyse website use and to improve the visitor\"s experience.",
+    "cookieConsent.category.essentials.title": "Essential cookies",
+    "cookieConsent.category.essentials.text": "Are necessary for technical reasons. Without them, this website may not function properly.",
+    "cookieConsent.category.functional.title": "Functional cookies",
+    "cookieConsent.category.functional.text": "Are necessary for specific functionality on the website. Without them, some features may be disabled.",
+    "cookieConsent.category.marketing.title": "Marketing cookies",
+    "cookieConsent.category.marketing.text": "Asllow us to personalise your experience and to send you relevant content and offers, on this website and other websites."
+
 }
