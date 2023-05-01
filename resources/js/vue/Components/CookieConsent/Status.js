@@ -97,11 +97,12 @@ export const ccModalState = {
 
         function getCategoryDecisions () {
             const current = getCookie(usePage().props.cookieName);
+            const categories = current.categories || {};
             return {
                 essentials: true,
-                functional: current.functional === true,
-                marketing: current.marketing === true,
-                analytics: current.analytics === true,
+                functional: categories.functional === true,
+                marketing: categories.marketing === true,
+                analytics: categories.analytics === true,
 
             };
         }

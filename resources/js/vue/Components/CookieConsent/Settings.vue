@@ -78,15 +78,15 @@ const cookieSettings = reactive(props.cookieSettings);
 const categories = [];
 const decisions = {};
 
-for (let category in props.cookieSettings) {
+for (let category in cookieSettings) {
     categories.push({
         ident: category,
-        checked: props.cookieSettings[category],
+        checked: cookieSettings[category],
         disabled: category === 'essentials',
         i18nTitle: `cookieConsent.category.${category}.title`,
         i18nText: `cookieConsent.category.${category}.text`,
     });
-    decisions[category] = props.cookieSettings[category];
+    decisions[category] = cookieSettings[category];
 }
 
 watch(cookieSettings, () => {
