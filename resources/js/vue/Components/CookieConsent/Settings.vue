@@ -20,15 +20,17 @@
 
             <div v-for="category in categories" :key="category.ident" class="flex items-start mb-4">
                 <input
-                    id="cookie-setting-{{category.ident}}"
+                    v-bind:id="'cookie-setting-' + category.ident"
+                    :data-ident="category.ident"
                     type="checkbox"
                     value=""
                     class="cursor-pointer mt-1 w-5 h-5  bg-white border-lime-800 rounded focus:ring-lime-800 dark:focus:ring-lime-800 dark:ring-offset-lime-400 focus:ring-2"
                     :class="category.disabled ? 'color-secondary' : 'color-primary'"
                     :disabled="category.disabled"
                     :checked="category.checked"
+                    @change="(event) => updateConsent(event)"
                 >
-                <label for="cookie-setting-{{category.ident}}" class="cursor-pointer ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label v-bind:for="'cookie-setting-' + category.ident" class="cursor-pointer ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     <span class="headline-4">{{ __(category.i18nTitle) }}</span><br>
                     <span>{{ __(category.i18nText) }}</span>
                 </label>
@@ -44,7 +46,7 @@
             </button>
             <button type="button"
                     class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                    @click="acceptSelected()"
+                    @click="saveSelected()"
             >
                 {{ __('cookieConsent.button.accept.selected') }}
             </button>
@@ -53,11 +55,13 @@
 </template>
 <script setup>
 import Modal from '~olive/Modal.vue';
+import {reactive, watch} from 'vue';
 
 const props = defineProps({
     cookieSettings: {
         type: Object,
         default: {
+            essentials: true,
             analytics: true,
             functional: true,
             marketing: true,
@@ -70,35 +74,29 @@ const props = defineProps({
     acceptSelected: Function,
 });
 
-const categories = [
-    {
-        ident: 'essentials',
-        checked: true,
-        disabled: true,
-        i18nTitle: 'cookieConsent.category.essentials.title',
-        i18nText: 'cookieConsent.category.essentials.text',
-    },
-    {
-        ident: 'functional',
-        checked: props.cookieSettings.functional,
-        disabled: false,
-        i18nTitle: 'cookieConsent.category.functional.title',
-        i18nText: 'cookieConsent.category.functional.text',
-    },
-    {
-        ident: 'analytics',
-        checked: props.cookieSettings.analytics,
-        disabled: false,
-        i18nTitle: 'cookieConsent.category.analytics.title',
-        i18nText: 'cookieConsent.category.analytics.text',
-    },
-    {
-        ident: 'marketing',
-        checked: props.cookieSettings.marketing,
-        disabled: false,
-        i18nTitle: 'cookieConsent.category.marketing.title',
-        i18nText: 'cookieConsent.category.marketing.text',
-    },
+const cookieSettings = reactive(props.cookieSettings);
+const categories = [];
+const decisions = {};
 
-];
+for (let category in props.cookieSettings) {
+    categories.push({
+        ident: category,
+        checked: props.cookieSettings[category],
+        disabled: category === 'essentials',
+        i18nTitle: `cookieConsent.category.${category}.title`,
+        i18nText: `cookieConsent.category.${category}.text`,
+    });
+    decisions[category] = props.cookieSettings[category];
+}
+
+watch(cookieSettings, () => {
+    for (let category in cookieSettings) {
+        decisions[category] = cookieSettings[category];
+
+    }
+    categories.map((category) => category.checked = cookieSettings[category.ident]);
+});
+
+const updateConsent = (event) => decisions[event.target.dataset.ident] = event.target.checked;
+const saveSelected = () => props.acceptSelected(decisions.analytics, decisions.functional, decisions.marketing);
 </script>

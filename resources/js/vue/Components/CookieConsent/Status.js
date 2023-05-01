@@ -28,11 +28,16 @@ function getCookie (cookieName) {
     return {};
 }
 
-const cookieDefaults = {
-    consent: consentUndecided,
+const cookieCategories = {
     analytics: false,
     functional: false,
     marketing: false,
+};
+
+const cookieDefaults = {
+    consent: consentUndecided,
+    decided: null,
+    categories: cookieCategories,
 };
 
 function cookieDefaultsDecided () {
@@ -40,6 +45,10 @@ function cookieDefaultsDecided () {
         consent: consentDecided,
         decided: Date.now(),
     };
+}
+
+function setCookieCategories (analytics, functional, marketing) {
+    return {...cookieCategories, marketing: marketing, analytics: analytics, functional: functional};
 }
 
 const isValidConsent = value => /^undecided|decided$/i.test(value);
@@ -53,7 +62,7 @@ export const ccModalState = {
             isViewSettings: false,
         });
 
-        const cookieSettings = reactive(getSettings());
+        const cookieCategoryDecisions = reactive(getCategoryDecisions());
 
         function showSettings () {
             state.isViewSettings = true;
@@ -77,26 +86,28 @@ export const ccModalState = {
         }
 
         function acceptSelected (analytics, functional, marketing) {
-            console.log('accept selected@ only call!');
-            setCookie({...cookieDefaults, ...cookieDefaultsDecided(), marketing: marketing, analytics: analytics, functional: functional});
+            setCookie({...cookieDefaults, ...cookieDefaultsDecided(), categories: setCookieCategories(analytics, functional, marketing)});
             state.isForced = false;
             state.isViewModal = false;
             state.isViewSettings = false;
+            cookieCategoryDecisions.marketing = marketing;
+            cookieCategoryDecisions.analytics = analytics;
+            cookieCategoryDecisions.functional = functional;
         }
 
-        function getSettings () {
+        function getCategoryDecisions () {
             const current = getCookie(usePage().props.cookieName);
             return {
-                consent: isValidConsent(current.consent) ? current.consent : consentUndecided,
                 essentials: true,
                 functional: current.functional === true,
                 marketing: current.marketing === true,
                 analytics: current.analytics === true,
+
             };
         }
 
         return {
-            state, cookieSettings, showSettings, hideSettings, hideModal, acceptAll, acceptRequiredOnly, acceptSelected, getSettings,
+            state, cookieCategoryDecisions, showSettings, hideSettings, hideModal, acceptAll, acceptRequiredOnly, acceptSelected,
         };
     },
 };

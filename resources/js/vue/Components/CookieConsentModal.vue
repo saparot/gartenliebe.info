@@ -9,7 +9,7 @@
         :hideClose="true"
     />
     <CookieConsentSettings
-        :cookieSettings="cookieSettings"
+        :cookieSettings="cookieCategoryDecisions"
         :showSettings="state.isViewSettings"
         :close="hideSettings"
         :acceptAll="acceptAll"
@@ -29,7 +29,7 @@ const props = defineProps({
 const {showConsentSettings} = toRefs(props);
 
 const {
-    state, cookieSettings, showSettings, hideSettings, hideModal, acceptAll, acceptRequiredOnly, acceptSelected,
+    state, cookieCategoryDecisions, showSettings, hideSettings, hideModal, acceptAll, acceptRequiredOnly, acceptSelected,
 } = ccModalState.setup(showConsentSettings);
 
 watch(showConsentSettings, () => {
