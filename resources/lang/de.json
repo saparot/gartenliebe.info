@@ -27,6 +27,7 @@
     "nav.footer.imprint": "Impressum",
     "nav.footer.links.title": "Links",
     "nav.footer.privacy": "Datenschutzhinweise",
+    "nav.footer.consent": "Cookie Einstellungen",
     "nav.footer.rights.reserved": "Alle Rechte vorbehalten.",
     "nav.footer.teaser.findMeOnPlatforms": "Du findest mich auf den folgenden Plattformen, ich versuche schnell zu antworten.",
     "nav.footer.teaser.keepInTouch": "Lass uns in Kontakt bleiben!",
@@ -43,5 +44,21 @@
     "static.pages.imprint.email": "E-Mail",
     "static.pages.imprint.phone": "Telefon",
     "static.pages.imprint.title": "Impressum",
-    "static.pages.imprint.tmg": "Angaben gemäß § 5 TMG"
+    "static.pages.imprint.tmg": "Angaben gemäß § 5 TMG",
+    "cookieConsent.button.accept.all": "Alle akzeptieren",
+    "cookieConsent.button.accept.selected": "Ausgewählte akzeptieren",
+    "cookieConsent.button.accept.requiredOnly": "Nur notwendige akzeptieren",
+    "cookieConsent.modalMain.title": "Datenschutz & Transparenz",
+    "cookieConsent.modalMain.info": "Wir verwenden Cookies, um Ihr Erlebnis und Interaktion mit unserer Website besser zu verstehen, um diese damit verbessern zu können, Inhalte und (Werbe-)Anzeigen für Sie zu personalisieren, als auch um Funktionen für soziale Medien zu ermöglichen.",
+    "cookieConsent.settings.adjust": "Einstellungen anpassen",
+    "cookieConsent.category.analytics.title": "Analytische Cookies",
+    "cookieConsent.category.analytics.text": "Ermöglichen es uns, die Nutzung der Website zu analysieren und die Erfahrung der Besucher zu verbessern.",
+    "cookieConsent.category.essentials.title": "Unverzichtbare Cookies",
+    "cookieConsent.category.essentials.text": "Sind aus technischen Gründen notwendig. Ohne sie würde diese Website nicht richtig funktionieren.",
+    "cookieConsent.category.functional.title": "Funktionale Cookies",
+    "cookieConsent.category.functional.text": "Sind für bestimmte Funktionen der Website erforderlich. Ohne sie können einige Funktionen deaktiviert sein.",
+    "cookieConsent.category.marketing.title": "Marketing Cookies",
+    "cookieConsent.category.marketing.text": "Ermöglichen uns, Ihre Erfahrungen zu personalisieren und Ihnen relevante Inhalte und Angebote auf dieser und anderen Websites zu senden.",
+    "cookieConsent.settings.info": "Unsere Website verfügt über drei Kategorien von Cookies. Sie können Ihre eigenen Einstellungen jederzeit ändern. In unserer :cookiePolicy können Sie mehr darüber lesen, was Cookies sind und welche Cookies wir sammeln."
+
 }
