@@ -37,8 +37,8 @@
     }
 
     .color-secondary {
-        /*text-fuchsia-800*/
-        @apply text-purple-800;
+        @apply text-purple-800 dark:text-purple-400;
+
     }
 
     .color-secondary-light {
