@@ -24,6 +24,11 @@
                 </button>
             </div>
         </template>
+        <template v-slot:icon>
+            <div class="flex bg-gray-600 rounded-full">
+                <img :src="cookie" alt="cookie" class="max-w-full p-1">
+            </div>
+        </template>
         <template v-slot:actions>
             <button type="button"
                     class="js-lcc-settings-save inline-flex w-full justify-center rounded-md bg-lime-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
@@ -40,6 +45,7 @@
     </Modal>
 </template>
 <script setup>
+import cookie from '/resources/images/misc/cookie.svg';
 import Modal from '~olive/Modal.vue';
 
 const props = defineProps({
