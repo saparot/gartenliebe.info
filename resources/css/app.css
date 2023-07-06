@@ -37,8 +37,8 @@
     }
 
     .color-secondary {
-        /*text-fuchsia-800*/
-        @apply text-purple-800;
+        @apply text-purple-800 dark:text-purple-400;
+
     }
 
     .color-secondary-light {
@@ -83,6 +83,10 @@
 
     .headline-3 {
         @apply text-2xl font-normal leading-normal mt-0 mb-2 color-secondary
+    }
+
+    .headline-4 {
+        @apply text-xl font-normal leading-normal mt-0 mb-2 color-secondary
     }
 
     .button-disabled {

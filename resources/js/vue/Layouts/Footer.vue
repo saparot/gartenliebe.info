@@ -4,8 +4,8 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap">
                 <div class="w-full md:w-6/12 px-4">
-                    <h4 class="text-lg">{{ __('nav.footer.teaser.keepInTouch') }}</h4>
-                    <h5 class="leading-normal mt-1 mb-2 text-blueGray-500">{{ __('nav.footer.teaser.findMeOnPlatforms') }}</h5>
+                    <h4 class="text-lg text-purple-400">{{ __('nav.footer.teaser.keepInTouch') }}</h4>
+                    <h5 class="leading-normal mt-1 mb-2 text-white">{{ __('nav.footer.teaser.findMeOnPlatforms') }}</h5>
                     <div class="mt-4">
 
                         <a href="mailto:coding.saparot@gmail.com" target="_blank" rel=“noopener“ class="">
@@ -31,26 +31,29 @@
                 <div class="w-full md:w-6/12 px-4">
                     <div class="flex flex-wrap items-top mb-6">
                         <div class="w-full md:w-6/12 xl:w-4/12 pt-6 md:pt-0 md:px-4 ml-auto">
-                            <div class="uppercase text-xs mb-2">{{ __('nav.footer.links.title') }}</div>
+                            <div class="uppercase text-xs text-purple-400 mb-2">{{ __('nav.footer.links.title') }}</div>
                             <ul class="list-unstyled">
                                 <li>
-                                    <Link class="hover:text-primary block pb-2 text-sm" :href="route('static.imprint')">{{ __('nav.footer.imprint') }}</Link>
+                                    <Link class="hover:text-primary block pb-2 text-sm text-white" :href="route('static.imprint')">{{ __('nav.footer.imprint') }}</Link>
                                 </li>
                                 <li>
-                                    <Link class="hover:text-primary block pb-2 text-sm" :href="route('static.privacy')">{{ __('nav.footer.privacy') }}</Link>
+                                    <Link class="hover:text-primary block pb-2 text-sm text-white" :href="route('static.privacy')">{{ __('nav.footer.privacy') }}</Link>
                                 </li>
                                 <li>
-                                    <Link class="hover:text-primary block pb-2 text-sm" :href="route('static.contact')">{{ __('nav.footer.contact') }}</Link>
+                                    <div class="hover:text-primary block pb-2 text-sm text-white" @click="openConsent">{{ __('nav.footer.consent') }}</div>
+                                </li>
+                                <li>
+                                    <Link class="hover:text-primary block pb-2 text-sm text-white" :href="route('static.contact')">{{ __('nav.footer.contact') }}</Link>
                                 </li>
                             </ul>
                         </div>
                         <div class="w-full md:w-6/12 xl:w-4/12 pt-6 md:pt-0 md:px-4 ml-auto">
-                            <span class="uppercase text-xs mb-2">{{ __('nav.resources.title') }}</span>
+                            <span class="uppercase text-xs text-purple-400 mb-2">{{ __('nav.resources.title') }}</span>
                             <ul class="list-unstyled">
                                 <li id="todo">
-                                    <Link class="hover:text-primary block pb-2 text-sm" href="#todo">{{ __('nav.resources.apiDocumentation') }}</Link>
+                                    <Link class="hover:text-primary block pb-2 text-sm text-white" href="#todo">{{ __('nav.resources.apiDocumentation') }}</Link>
                                 </li>
-                                <li><a class="hover:text-primary block pb-2 text-sm" href="https://saparot.io" target="_blank">saparot.io</a></li>
+                                <li><a class="hover:text-primary block pb-2 text-sm text-white" href="https://saparot.io" target="_blank">saparot.io</a></li>
                             </ul>
                         </div>
                     </div>
@@ -61,13 +64,27 @@
             <div class="mx-auto text-center text-sm py-1">© 2020 - {{ year }}
                 <a href="https://saparot.io" class="hover:text-blueGray-600 font-semibold" target="_blank">saparot.io</a>. {{ __('nav.footer.rights.reserved') }}
             </div>
-
-
         </div>
+        <cookie-consent-modal
+            :showConsentSettings="isConsentModalActive"
+            :closeSettings="closeSettings"
+        />
     </footer>
 </template>
 <script setup>
 import {Link} from '@inertiajs/vue3';
+import CookieConsentModal from '~olive/CookieConsentModal.vue';
+import {ref} from 'vue';
+
+const isConsentModalActive = ref(false);
+
+const openConsent = () => {
+    isConsentModalActive.value = true;
+};
+
+const closeSettings = () => {
+    isConsentModalActive.value = false;
+};
 
 const year = new Date().getFullYear();
 </script>
